@@ -1,0 +1,7 @@
+.header {
+  background-color: var(--background-color);
+}
+
+.title {
+  color: var(--text-color)
+}

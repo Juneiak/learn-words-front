@@ -1,0 +1,13 @@
+.app {
+  margin: auto;
+}
+
+:root {
+  --background-color: white;
+  --text-color: black;
+}
+
+[site-theme-mode='dark'] {
+  --background-color: black;
+  --text-color: white;
+}
