@@ -1,0 +1,21 @@
+.colors {
+  --text-color: #000;
+  --color-basic-1: #FCFCFD;
+  --color-basic-2: #F1F1F1;
+  --color-basic-3: #DFDFE6;
+  --color-light-blue: #3772FF;
+  --color-light-red: #E53535;
+  --color-light-green: #05A660;
+  --color-light-orange: #FF8800;
+}
+
+[data-theme-mode='dark'] {
+  --text-color: #fff;
+  --color-basic-1: #23262F;
+  --color-basic-2: #87898E;
+  --color-basic-3: #484C56;
+  --color-light-blue: #3772FF;
+  --color-light-red: #E8726C;
+  --color-light-green: #4C906E;
+  --color-light-orange: #F6B05D;
+}

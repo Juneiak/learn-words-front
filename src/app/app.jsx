@@ -1,18 +1,38 @@
 import React from 'react';
 import './app.css';
+import '../ui/colors.css';
+import '../ui/text.css';
 import Header from '../components/header/header';
+import Footer from '../components/footer/footer';
+import { MainPage, AboutPage, WordSetsPage } from '../pages/index';
+import { Switch, Route } from 'react-router-dom';
 
 function App() {
-  const [mode, changeMode] = React.useState('light');
+  const [themeMode, changeThemeMode] = React.useState('light');
 
-  function moduleChange() {
-    const changedMode = mode === 'light' ? 'dark' : 'light'
-    changeMode(changedMode)
-  }
+  function changeThemeHandler() {
+    const changedTheme = themeMode === 'light' ? 'dark' : 'light';
+    changeThemeMode(changedTheme);
+  };
 
   return (
-    <div className="app" site-theme-mode={mode}>
-      <Header onModeChangeClick={moduleChange}></Header>
+    <div className="app colors" data-theme-mode={themeMode}>
+      <Header onThemeChangeClick={changeThemeHandler}></Header>
+      <Switch>
+        <Route exact path='/'>
+          <MainPage />
+        </Route>
+
+        <Route exact path='/about'>
+          <AboutPage />
+        </Route>
+
+        <Route exact path='/word-sets'>
+          <WordSetsPage />
+        </Route>
+      </Switch>
+      
+      <Footer />
     </div>
   );
 }
