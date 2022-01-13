@@ -1,13 +1,23 @@
 import React from "react";
 import styles from './header.module.css';
+import ThemeButton from "../theme-button/theme-button";
+import NavTab from "../nav-tab/nav-tab";
 
 function Header({onThemeChangeClick}) {
-  
+  const logged = true;
+
     return (
-      <div className={styles.header}>
-        <h1 className={styles.title}>hi world header</h1>
-        <button onClick={onThemeChangeClick}><h2>click on me!</h2></button>
-      </div>
+      <header className={styles.header}>
+        <ThemeButton onClick={onThemeChangeClick}/>
+        <NavTab />
+        <div>
+          {
+            logged 
+            ? <button className={styles.prodile-button}>profile</button>
+            : <button>login via tg</button>
+          }
+        </div>
+      </header>
     )
 }
 
