@@ -1,17 +1,28 @@
 import React from "react";
 import styles from './nav-tab.module.css';
 import NavTabLink from "./nav-tab-link";
+import aboutIconL from '../../images/Icons/nav-tab/light/light-about.svg';
+import wordSetsIconL from '../../images/Icons/nav-tab/light/light-my-words.svg';
+import myWordsIconL from '../../images/Icons/nav-tab/light/light-word-sets.svg';
+import statisticIconL from '../../images/Icons/nav-tab/light/light-statistic.svg';
+import settingsIconL from '../../images/Icons/nav-tab/light/light-settings.svg';
+
+import aboutIconD from '../../images/Icons/nav-tab/dark/dark-about.svg';
+import wordSetsIconD from '../../images/Icons/nav-tab/dark/dark-word-sets.svg';
+import myWordsIconD from '../../images/Icons/nav-tab/dark/dark-my-words.svg';
+import statisticIconD from '../../images/Icons/nav-tab/dark/dark-statistic.svg';
+import settingsIconD from '../../images/Icons/nav-tab/dark/dark-settings.svg';
 
 function NavTab() {
-  
+
     return (
       <nav className={styles.nav}>
-        <ul className={styles.nav-container}>
-          <NavTabLink linkTo='/about' linkPicture={} linkText='About' />
-          <NavTabLink linkTo='/word-sets' linkPicture={} linkText='Word sets' />
-          <NavTabLink linkTo='/main' linkPicture={} linkText='My words' />
-          <NavTabLink linkTo='/statistic' linkPicture={} linkText='Statistic' />
-          <NavTabLink linkTo='/settings' linkPicture={} linkText='Settings' />
+        <ul className={styles.list}>
+          <NavTabLink linkTo='/about' linkIcon={aboutIconL} darkLinkIcon={aboutIconD} linkName='About' />
+          <NavTabLink linkTo='/word-sets' linkIcon={wordSetsIconL} darkLinkIcon={wordSetsIconD} linkName='Word sets' />
+          <NavTabLink linkTo='/main' linkIcon={myWordsIconL} darkLinkIcon={myWordsIconD} linkName='My words' />
+          <NavTabLink linkTo='/statistic' linkIcon={statisticIconL} darkLinkIcon={statisticIconD} linkName='Statistic' />
+          <NavTabLink linkTo='/settings' linkIcon={settingsIconL} darkLinkIcon={settingsIconD} linkName='Settings' />
         </ul>
       </nav>
     )

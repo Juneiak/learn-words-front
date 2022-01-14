@@ -10,9 +10,9 @@ function ThemeButton({ onClick, themeStatus }) {
           className={styles.checkBox}
           onChange={onClick}
           type='checkbox'
-        >
-          <div>filter</div>
-        </input>
+        />
+        <div className={styles.checkBoxPseudo}></div>
+        <div className={styles.checkBoxDot}></div>
       </label>
     )
 }

@@ -8,15 +8,18 @@ function Header({onThemeChangeClick}) {
 
     return (
       <header className={styles.header}>
-        <ThemeButton onClick={onThemeChangeClick}/>
-        <NavTab />
-        <div>
-          {
-            logged 
-            ? <button className={styles.prodile-button}>profile</button>
-            : <button>login via tg</button>
-          }
+        <div className={styles.content}>
+          <ThemeButton onClick={onThemeChangeClick}/>
+          <NavTab />
+          <div>
+            {
+              logged 
+              ? <button className={styles.profileButton}>profile</button>
+              : <button>login via tg</button>
+            }
+          </div>
         </div>
+        
       </header>
     )
 }
