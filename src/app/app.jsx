@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="app colors" data-theme-mode={themeMode}>
-      <Header onThemeChangeClick={changeThemeHandler}></Header>
+      <Header onThemeChangeClick={changeThemeHandler} themeStatus={themeMode}></Header>
       <Switch>
         <Route exact path='/'>
           <MainPage />

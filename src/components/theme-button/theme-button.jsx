@@ -3,18 +3,23 @@ import styles from './theme-button.module.css';
 
 function ThemeButton({ onClick, themeStatus }) {
 
-    return (
-      <label className={styles.checkBoxContainer}>
-        <input
-          checked={themeStatus === 'dark' ? true : false}
-          className={styles.checkBox}
-          onChange={onClick}
-          type='checkbox'
-        />
-        <div className={styles.checkBoxPseudo}></div>
-        <div className={styles.checkBoxDot}></div>
-      </label>
-    )
+  const isDarkTheme = themeStatus === 'dark' ? true : false
+
+  return (
+    <label className={styles.container}>
+      <input
+        checked={isDarkTheme}
+        className={styles.checkBox}
+        onChange={onClick}
+        type='checkbox'
+      />
+      <div className={styles.pseudo}></div>
+      <div className={styles.dot}></div>
+      <span className={`${styles.text} text-caption`}>
+        {isDarkTheme ? 'Dark mode' : 'Light mode' }
+      </span>
+    </label>
+  )
 }
 
 export default ThemeButton;
