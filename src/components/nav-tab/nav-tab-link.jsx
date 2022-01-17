@@ -2,7 +2,7 @@ import React from "react";
 import styles from './nav-tab-link.module.css';
 import { NavLink } from 'react-router-dom';
 
-function NavTabLink({ linkTo, linkIcon, darkLinkIcon, linkName }) {
+function NavTabLink({ linkTo, icon: Icon, linkName }) {
   const isDarkTheme = false;
 
     return (
@@ -13,7 +13,7 @@ function NavTabLink({ linkTo, linkIcon, darkLinkIcon, linkName }) {
           className={`${styles.link} text-button link`}
           activeClassName={styles.activeLink}
         >
-          <img className={styles.linkImage} src={isDarkTheme ? darkLinkIcon : linkIcon}></img>
+          <Icon isDarkTheme={isDarkTheme} />
           <span className={styles.linkName}>{linkName}</span>
         </NavLink>
       </li>

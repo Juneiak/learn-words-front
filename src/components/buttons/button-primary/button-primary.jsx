@@ -4,7 +4,7 @@ import styles from './button-primary.module.css';
 function ButtonPrimary({
   buttonText,
   clickHandler,
-  buttonIcon=false,
+  buttonIcon: Icon = false,
   buttonWidth='max-content',
   buttonHeight='max-content',
 }) {
@@ -16,7 +16,7 @@ function ButtonPrimary({
       onClick={clickHandler}
       className={`${styles.button} text-button `}
     >
-      {buttonIcon && <img src={buttonIcon}></img>}
+      {Icon && <div style={{'margin-right': '10px'}}><Icon className={styles.margin} isDarkTheme={true}/></div> }
       <span className={styles.text}>{buttonText}</span>
     </button>
   )
