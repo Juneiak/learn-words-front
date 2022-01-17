@@ -1,0 +1,13 @@
+.link {
+  color: var(--text-color);
+}
+
+.element {
+  margin-right: 45px;
+}
+
+.element:last-child {
+  margin-right: 0;
+}
+
+

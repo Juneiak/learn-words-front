@@ -3,17 +3,17 @@ import styles from './nav-tab-link.module.css';
 import { NavLink } from 'react-router-dom';
 
 function NavTabLink({ linkTo, linkIcon, darkLinkIcon, linkName }) {
-  const isDarkTheme = true;
+  const isDarkTheme = false;
 
     return (
       <li className={styles.element}>
         <NavLink
           exact
           to={linkTo}
-          className={`${styles.link} text-buttonx`}
+          className={`${styles.link} text-button link`}
           activeClassName={styles.activeLink}
         >
-          <img className={styles.linkImage} src={isDarkTheme ? linkIcon : darkLinkIcon}></img>
+          <img className={styles.linkImage} src={isDarkTheme ? darkLinkIcon : linkIcon}></img>
           <span className={styles.linkName}>{linkName}</span>
         </NavLink>
       </li>

@@ -19,7 +19,7 @@ function NavTab() {
     return (
       <nav className={styles.nav}>
         <ul className={styles.list}>
-          <NavTabLink linkTo='/about' linkIcon={aboutIconL} darkLinkIcon={aboutIconD} linkName='About' />}
+          <NavTabLink linkTo='/about' linkIcon={aboutIconL} darkLinkIcon={aboutIconD} linkName='About' />
           {isLogin && <NavTabLink linkTo='/word-sets' linkIcon={wordSetsIconL} darkLinkIcon={wordSetsIconD} linkName='Word sets' />}
           {isLogin && <NavTabLink linkTo='/main' linkIcon={myWordsIconL} darkLinkIcon={myWordsIconD} linkName='My words' />}
           {isLogin && <NavTabLink linkTo='/statistic' linkIcon={statisticIconL} darkLinkIcon={statisticIconD} linkName='Statistic' />}

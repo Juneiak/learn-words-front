@@ -2,6 +2,7 @@ import React from 'react';
 import './app.css';
 import '../ui/colors.css';
 import '../ui/text.css';
+import '../ui/standard-patterns.css';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import { MainPage, AboutPage, WordSetsPage } from '../pages/index';
