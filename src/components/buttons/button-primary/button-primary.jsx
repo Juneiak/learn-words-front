@@ -16,7 +16,7 @@ function ButtonPrimary({
       onClick={clickHandler}
       className={`${styles.button} text-button `}
     >
-      {Icon && <div style={{'margin-right': '10px'}}><Icon className={styles.margin} isDarkTheme={true}/></div> }
+      {Icon && <div style={{marginRight: '10px'}}><Icon className={styles.margin} isDarkTheme={true}/></div> }
       <span className={styles.text}>{buttonText}</span>
     </button>
   )

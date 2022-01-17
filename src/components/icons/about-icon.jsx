@@ -1,6 +1,6 @@
 import React from 'react';
-import aboutIconL from '../../images/Icons/nav-tab/light/light-about.svg';
-import aboutIconD from '../../images/Icons/nav-tab/dark/dark-about.svg';
+import aboutIconL from '../../images/icons/nav-tab/light/light-about.svg';
+import aboutIconD from '../../images/icons/nav-tab/dark/dark-about.svg';
 
 function AboutIcon({ isDarkTheme=false }) {
   return (

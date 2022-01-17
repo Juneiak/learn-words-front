@@ -26,7 +26,6 @@ function Header({onThemeChangeClick, themeStatus}) {
             }
           </div>
         </div>
-        
       </header>
     )
 }
