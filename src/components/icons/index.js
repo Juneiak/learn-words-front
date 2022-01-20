@@ -7,6 +7,7 @@ import AddIcon from "./add-icon";
 import DeleteIcon from "./delete-icon";
 import SearchIcon from "./search-icon";
 import ArrowIcon from "./arrow-icon";
+import ProfileIcon from "./profile-icon";
 
 export {
   AboutIcon,
@@ -17,5 +18,6 @@ export {
   AddIcon,
   DeleteIcon,
   SearchIcon,
-  ArrowIcon 
+  ArrowIcon,
+  ProfileIcon,
 }

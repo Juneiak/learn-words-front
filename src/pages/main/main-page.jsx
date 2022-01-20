@@ -4,34 +4,29 @@ import ButtonPrimary from '../../components/buttons/button-primary/button-primar
 import { AddIcon } from '../../components/icons';
 import SearchBar from '../../components/search-bar/search-bar';
 import WordList from '../../components/word-list/word-list';
+import PageWrap from '../../components/page-wrap/page-wrap';
 
 function MainPage() {
 
-
-
   return (
-    <main className={styles.page}>
-      <div className={styles.content}>
+    <PageWrap>
+      <section className={styles.functions}>
+        <ButtonPrimary 
+          buttonText='add new word'
+          clickHandle={() => true}
+          buttonIcon={AddIcon}
+          buttonWidth='210px'
+          buttonHeight='56px'
+        />
+        <SearchBar />
+      </section>
 
-        <section className={styles.functions}>
-          <ButtonPrimary 
-            buttonText='add new word'
-            clickHandle={() => true}
-            buttonIcon={AddIcon}
-            buttonWidth='210px'
-            buttonHeight='56px'
-          />
-          <SearchBar />
-        </section>
+      <section className={styles.lists}>
+        <WordList />
+        <WordList />
+      </section>
+    </PageWrap>
 
-        <section className={styles.lists}>
-          <WordList />
-          <WordList />
-        </section>
-
-      </div>
-      
-    </main>
   )
 }
 

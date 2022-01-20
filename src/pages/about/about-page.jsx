@@ -2,6 +2,7 @@ import React from "react";
 import styles from './about-page.module.css';
 import ArticleBlock from "../../components/article-block/article-block";
 import atricleImage from '../../images/article-image.png';
+import PageWrap from "../../components/page-wrap/page-wrap";
 
 function AboutPage() {
 
@@ -12,20 +13,17 @@ function AboutPage() {
   const atricleTitle2 = 'Метод интервальных повторений для изучения английских слов' 
 
   return (
-    <main className={styles.about}>
-      <div className={styles.content}>
-        <h1 className={`${styles.pageTitle} text-h1`}></h1>
-        <ui className={styles.articlesList}>
-          <li className={styles.element}>
-            <ArticleBlock text={articleText1} title={atricleTitle1} image={atricleImage} />
-          </li>
-          <li className={styles.element}>
-            <ArticleBlock text={articleText2} title={atricleTitle2} />
-          </li>
-        </ui>
-      </div>
-      
-    </main>
+    <PageWrap title='About methods'>
+      <ui className={styles.articlesList}>
+        <li className={styles.element}>
+          <ArticleBlock text={articleText1} title={atricleTitle1} image={atricleImage} />
+        </li>
+        <li className={styles.element}>
+          <ArticleBlock text={articleText2} title={atricleTitle2} />
+        </li>
+      </ui>
+    </PageWrap>
+        
   )
 }
 

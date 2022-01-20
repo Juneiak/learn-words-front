@@ -3,9 +3,10 @@ import styles from './header.module.css';
 import ThemeButton from "../theme-button/theme-button";
 import NavTab from "../nav-tab/nav-tab";
 import ButtonPrimary from '../buttons/button-primary/button-primary';
+import { ProfileIcon } from "../icons";
 
 function Header({onThemeChangeClick, themeStatus}) {
-  const logged = false;
+  const logged = true;
   function clickHandler() {
     return true
   }
@@ -17,7 +18,9 @@ function Header({onThemeChangeClick, themeStatus}) {
           <div>
             {
               logged 
-              ? <button className={styles.profileButton}>profile</button>
+              ? <button className={styles.profileButton}>
+                  <ProfileIcon />
+                </button>
               : <ButtonPrimary
                   buttonText='ligin via tg'
                   buttonHeight='48px'

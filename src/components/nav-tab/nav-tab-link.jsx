@@ -3,7 +3,7 @@ import styles from './nav-tab-link.module.css';
 import { NavLink } from 'react-router-dom';
 
 function NavTabLink({ linkTo, icon: Icon, linkName }) {
-  const isDarkTheme = false;
+  const isDarkTheme = true;
 
     return (
       <li className={styles.element}>
