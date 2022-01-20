@@ -1,5 +1,5 @@
 import React from 'react';
-import lightVersion from '../../images/icons/ui-images/light/light-delete.svg';
+import lightVersion from '../../images/icons/ui-images/light/light-arrow.svg';
 
 function ArrowIcon() {
   return (

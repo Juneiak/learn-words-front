@@ -1,0 +1,49 @@
+.listContainer {
+  max-width: 510px;
+}
+
+.listTitle {
+  margin: 0 0 25px 0;
+  font-weight: 700%;
+}
+
+.element {
+  margin-bottom: 20px;
+}
+
+.element:last-child {
+  margin-bottom: 0;
+}
+
+.listBorder {
+  padding: 30px 10px 30px 30px;
+  border: 1px solid var(--color-basic-3);
+  border-radius: 12px;
+  max-height: 600px;
+  box-sizing: border-box;
+  display: flex;
+
+}
+
+.list {
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 0 10px 0 0;
+}
+
+.list::-webkit-scrollbar {
+  background-color: var(--color-basic-2);
+  width: 10px;
+  border-right: 50px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background-color: var(--color-basic-3);
+  width: 10px;
+  border-radius: 50px;
+}

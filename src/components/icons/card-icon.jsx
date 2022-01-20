@@ -1,10 +1,15 @@
 import React from 'react';
-import cardIconL from '../../images/icons/nav-tab/light/light-card.svg';
-import cardIconD from '../../images/icons/nav-tab/dark/dark-card.svg';
+import lightVersion from '../../images/icons/nav-tab/light/light-card.svg';
+import darkVersion from '../../images/icons/nav-tab/dark/dark-card.svg';
 
-function CardIcon({ isDarkTheme=false }) {
+function CardIcon({ constTheme=false }) {
+
+  const appDarkThemeStatus = false; // it is app var, take it from redux
+
+  const darkThemeOn = constTheme ? (constTheme === 'dark' ? true : false) : appDarkThemeStatus;
+
   return (
-    <img src={isDarkTheme ? cardIconD : cardIconL}/>
+    <img src={darkThemeOn ? lightVersion : darkVersion}/>
   )
 }
 

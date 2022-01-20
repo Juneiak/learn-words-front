@@ -5,3 +5,10 @@
   background-color: var(--color-basic-1);
   width: 100%;
 }
+
+
+@media screen and (max-width: 1000px) {
+  .app {
+    background-color: wheat;
+  }
+}

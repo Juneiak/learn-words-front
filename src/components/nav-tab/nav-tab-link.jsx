@@ -13,7 +13,7 @@ function NavTabLink({ linkTo, icon: Icon, linkName }) {
           className={`${styles.link} text-button link`}
           activeClassName={styles.activeLink}
         >
-          <Icon isDarkTheme={isDarkTheme} />
+          <Icon />
           <span className={styles.linkName}>{linkName}</span>
         </NavLink>
       </li>

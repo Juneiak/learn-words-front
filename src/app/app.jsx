@@ -10,7 +10,7 @@ import { Switch, Route } from 'react-router-dom';
 
 function App() {
   const [themeMode, changeThemeMode] = React.useState('light');
-
+  
   function changeThemeHandler() {
     const changedTheme = themeMode === 'light' ? 'dark' : 'light';
     changeThemeMode(changedTheme);

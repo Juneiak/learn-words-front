@@ -10,7 +10,7 @@ function Footer() {
           pet-project. Juneiak х ModalLab
         </span>
         <div className={styles.contacts}>
-          <span className='text-caption-small'>&copy; 2022</span>
+          <span className={`${styles.year} text-caption-small`}>&copy; 2022</span>
           <ul className={styles.list}>
             <FooterLink linkName='Github' linkHref='#'/>
             <FooterLink linkName='Telegram' linkHref='#'/>

@@ -1,10 +1,15 @@
 import React from 'react';
-import deleteIconL from '../../images/icons/ui-images/light/light-delete.svg';
-import deleteIconD from '../../images/icons/ui-images/dark/dark-delete.svg';
+import lightVersion from '../../images/icons/ui-images/light/light-delete.svg';
+import darkVersion from '../../images/icons/ui-images/dark/dark-delete.svg';
 
-function DeleteIcon({ isDarkTheme=false }) {
+function DeleteIcon({ constTheme=false }) {
+
+  const appDarkThemeStatus = false; // it is app var, take it from redux
+
+  const darkThemeOn = constTheme ? (constTheme === 'dark' ? true : false) : appDarkThemeStatus;
+
   return (
-    <img src={isDarkTheme ? deleteIconD : deleteIconL}/>
+    <img src={darkThemeOn ? lightVersion : darkVersion}/>
   )
 }
 

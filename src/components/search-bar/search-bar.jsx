@@ -12,7 +12,7 @@ function SearchBar() {
         <form className={styles.form}>
 
           <div className={styles.searchField}>
-            <SearchIcon isDarkTheme={false} />
+            <SearchIcon />
             <input
             className={`${styles.textInput} text-caption`}
             type='text'

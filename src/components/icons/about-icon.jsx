@@ -1,10 +1,15 @@
 import React from 'react';
-import aboutIconL from '../../images/icons/nav-tab/light/light-about.svg';
-import aboutIconD from '../../images/icons/nav-tab/dark/dark-about.svg';
+import lightVersion from '../../images/icons/nav-tab/light/light-about.svg';
+import darkVersion from '../../images/icons/nav-tab/dark/dark-about.svg';
 
-function AboutIcon({ isDarkTheme=false }) {
+function AboutIcon({ constTheme=false }) {
+
+  const appDarkThemeStatus = false; // it is app var, take it from redux
+
+  const darkThemeOn = constTheme ? (constTheme === 'dark' ? true : false) : appDarkThemeStatus;
+
   return (
-    <img src={isDarkTheme ? aboutIconD : aboutIconL}/>
+    <img src={darkThemeOn ? lightVersion : darkVersion}/>
   )
 }
 

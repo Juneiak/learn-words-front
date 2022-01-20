@@ -3,6 +3,7 @@ import styles from './main-page.module.css';
 import ButtonPrimary from '../../components/buttons/button-primary/button-primary';
 import { AddIcon } from '../../components/icons';
 import SearchBar from '../../components/search-bar/search-bar';
+import WordList from '../../components/word-list/word-list';
 
 function MainPage() {
 
@@ -24,7 +25,7 @@ function MainPage() {
         </section>
 
         <section className={styles.lists}>
-
+          <WordList />
         </section>
 
       </div>

@@ -1,11 +1,15 @@
 import React from 'react';
-import settingsIconL from '../../images/icons/nav-tab/light/light-settings.svg';
-import settingsIconD from '../../images/icons/nav-tab/dark/dark-settings.svg';
+import lightVersion from '../../images/icons/nav-tab/light/light-settings.svg';
+import darkVersion from '../../images/icons/nav-tab/dark/dark-settings.svg';
 
-function SettingsIcon({ isDarkTheme=false }) {
-  
+function SettingsIcon({ constTheme=false }) {
+
+  const appDarkThemeStatus = false; // it is app var, take it from redux
+
+  const darkThemeOn = constTheme ? (constTheme === 'dark' ? true : false) : appDarkThemeStatus;
+
   return (
-    <img alt='icon image' src={isDarkTheme ? settingsIconD : settingsIconL}/>
+    <img src={darkThemeOn ? lightVersion : darkVersion}/>
   )
 }
 
