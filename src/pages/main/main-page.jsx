@@ -26,6 +26,7 @@ function MainPage() {
 
         <section className={styles.lists}>
           <WordList />
+          <WordList />
         </section>
 
       </div>

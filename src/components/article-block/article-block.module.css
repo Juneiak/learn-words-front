@@ -1,0 +1,26 @@
+.article {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-template-rows: 1fr max-content;
+  grid-template-areas: 
+  'title title'
+  'text image';
+  width: 100%;
+  column-gap: 25px;
+  row-gap: 40px;
+}
+
+.title {
+  grid-area: title;
+  color: var(--text-color);
+}
+
+.text {
+  grid-area: text;
+  color: var(--text-color);
+
+}
+
+.image {
+  grid-area: image;
+}
