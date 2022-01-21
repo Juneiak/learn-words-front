@@ -6,7 +6,7 @@
   padding: 50px 0 110px
 }
 
-.content {
+.contentWrap {
   width: 90%;
   max-width: 1160px;
   display: flex;

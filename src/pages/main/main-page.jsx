@@ -22,8 +22,8 @@ function MainPage() {
       </section>
 
       <section className={styles.lists}>
-        <WordList />
-        <WordList />
+        <WordList title='Words to study' />
+        <WordList title='Learned words'/>
       </section>
     </PageWrap>
 

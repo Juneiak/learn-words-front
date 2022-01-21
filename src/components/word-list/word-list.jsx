@@ -2,7 +2,7 @@ import React from "react";
 import styles from './word-list.module.css';
 import WordCard from "../word-card/word-card";
 
-function WordList() {
+function WordList({ title }) {
 
   const cardsData = [
     {
@@ -44,7 +44,7 @@ function WordList() {
 
   return (
     <div className={styles.listContainer}>     
-      <h4 className={`${styles.listTitle} text-h3`}>Words to study</h4>
+      <h4 className={`${styles.listTitle} text-h3`}>{title}</h4>
       <div className={styles.listBorder}>
         <ul className={styles.list}>
           { cardsData.map((cardData, index) => (

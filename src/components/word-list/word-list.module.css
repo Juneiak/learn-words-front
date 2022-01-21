@@ -2,9 +2,10 @@
   max-width: 510px;
 }
 
-.listTitle {
+.listTitle{
   margin: 0 0 25px 0;
-  font-weight: 700%;
+  font-weight: 700;
+  color: var(--text-color)
 }
 
 .element {
@@ -39,7 +40,7 @@
 .list::-webkit-scrollbar {
   background-color: var(--color-basic-2);
   width: 10px;
-  border-right: 50px;
+  border-radius: 50px;
 }
 
 .list::-webkit-scrollbar-thumb {
