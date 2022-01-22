@@ -8,6 +8,7 @@ import DeleteIcon from "./delete-icon";
 import SearchIcon from "./search-icon";
 import ArrowIcon from "./arrow-icon";
 import ProfileIcon from "./profile-icon";
+import CloseIcon from "./close-icon";
 
 export {
   AboutIcon,
@@ -20,4 +21,5 @@ export {
   SearchIcon,
   ArrowIcon,
   ProfileIcon,
+  CloseIcon,
 }

@@ -5,7 +5,7 @@ import NavTab from "../nav-tab/nav-tab";
 import ButtonPrimary from '../buttons/button-primary/button-primary';
 import { ProfileIcon } from "../icons";
 
-function Header({onThemeChangeClick, themeStatus}) {
+function Header({onThemeChangeClick, themeStatus, handleOpenPopUp}) {
   const logged = true;
   function clickHandler() {
     return true
@@ -18,7 +18,7 @@ function Header({onThemeChangeClick, themeStatus}) {
           <div>
             {
               logged 
-              ? <button className={styles.profileButton}>
+              ? <button onClick={handleOpenPopUp} className='button-animation '>
                   <ProfileIcon />
                 </button>
               : <ButtonPrimary
