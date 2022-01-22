@@ -7,7 +7,7 @@ import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import { MainPage, AboutPage, WordSetsPage } from '../pages/index';
 import { Switch, Route } from 'react-router-dom';
-import { AddPopUp } from '../components/pop-ups';
+import { AddPopUp, WordSetPopUp } from '../components/pop-ups';
 
 function App() {
   const [themeMode, changeThemeMode] = React.useState('light');
@@ -43,7 +43,9 @@ function App() {
       <Footer />
 
       <Switch>
-        {isPopUpOpen && <AddPopUp handleCLose={openPopUpHandler} />}
+        {/* {isPopUpOpen && <AddPopUp handleCLose={openPopUpHandler} />} */}
+        {isPopUpOpen && <WordSetPopUp handleCLose={openPopUpHandler} />}
+
       </Switch>
     </div>
   );

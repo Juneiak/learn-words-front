@@ -6,11 +6,13 @@ import animalImage from '../../images/word-set-image/animal.png';
 import basicImage from '../../images/word-set-image/basic.png';
 import travelImage from '../../images/word-set-image/travel.png';
 import foodImage from '../../images/word-set-image/food.png';
+import SearchBar from "../../components/search-bar/search-bar";
 
 function WordSetsPage() {
   return (
     <PageWrap title='Ready-make word sets to learn'>
       <section className={styles.content}>
+        <div className={styles.searchBar}><SearchBar placeholder='find word set' /></div>
         <ul className={styles.list}>
           <li className={styles.element}>
             <WordSetCard title='food' imageUrl={foodImage} />

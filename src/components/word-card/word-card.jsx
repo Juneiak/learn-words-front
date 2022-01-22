@@ -1,10 +1,9 @@
 import React from "react";
 import styles from './word-card.module.css';
-import { DeleteIcon } from "../icons";
+import { DeleteIcon, ArrowIcon, AddIcon } from "../icons";
 import ProgressBar from "../progress-bar/progress-bar";
-import { ArrowIcon } from "../icons";
 
-function WordCard({ data }) {
+function WordCard({ data, isNew=true}) {
   
   return (
     <article className={styles.card}>
@@ -14,7 +13,9 @@ function WordCard({ data }) {
         <ArrowIcon />
         <span className={`${styles.word} text-caption`}>{data.translation}</span>
       </div>
-      <div className={styles.icon}><DeleteIcon /></div>
+      <div className={styles.icon}>
+        {isNew ? <AddIcon size='big' constTheme='light' /> : <DeleteIcon />}
+      </div>
       <div className={styles.progressBar}><ProgressBar progress={50}/></div>
     </article>
   )

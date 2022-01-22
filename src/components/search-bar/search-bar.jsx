@@ -2,7 +2,7 @@ import React from "react";
 import styles from './search-bar.module.css';
 import { SearchIcon } from "../icons";
 
-function SearchBar() {
+function SearchBar({placeholder}) {
   const [ searchText, setSerchText ] = React.useState('')
 
   const handleTextChange = (evt) => setSerchText(evt.target.value);
@@ -19,7 +19,7 @@ function SearchBar() {
             minLength='1'
             required
             maxLength='100000'
-            placeholder="find added word"
+            placeholder={placeholder}
             value={searchText}
             onChange={handleTextChange}
             ></input>

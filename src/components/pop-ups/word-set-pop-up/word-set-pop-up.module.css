@@ -1,0 +1,22 @@
+.content {
+  display: grid;
+  grid-template-columns: minmax(320px, 470px);
+  grid-template-rows: repeat(fit-content);
+  justify-items: center;
+  box-sizing: border-box;
+}
+
+.setTitle {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.about {
+  margin-bottom: 20px;
+  height: 75px;
+}
+
+.list {
+  margin-bottom: 20px;
+  width: 100%;
+}
