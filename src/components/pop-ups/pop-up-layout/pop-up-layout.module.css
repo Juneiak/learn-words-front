@@ -12,12 +12,11 @@
 }
 
 .contentWraper {
-  width: 500px;
-  height: 250px;
   position: relative;
   border-radius: 12px;
   padding: 30px;
   background-color: var(--color-basic-1);
+  max-width: 540px;
 }
 
 .closeButton {

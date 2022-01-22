@@ -9,6 +9,7 @@ import SearchIcon from "./search-icon";
 import ArrowIcon from "./arrow-icon";
 import ProfileIcon from "./profile-icon";
 import CloseIcon from "./close-icon";
+import FolderIcon from "./folder-icon";
 
 export {
   AboutIcon,
@@ -22,4 +23,5 @@ export {
   ArrowIcon,
   ProfileIcon,
   CloseIcon,
+  FolderIcon,
 }
