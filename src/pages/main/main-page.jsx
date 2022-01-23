@@ -63,10 +63,11 @@ function MainPage() {
         <ButtonPrimary 
           buttonText='add new word'
           clickHandle={() => true}
-          buttonIcon={AddIcon}
           buttonWidth='210px'
           buttonHeight='56px'
-        />
+        >
+          <AddIcon constTheme='dark' />
+        </ButtonPrimary>
         <SearchBar placeholder='find added word' />
       </section>
 

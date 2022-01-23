@@ -8,23 +8,21 @@ import Footer from '../components/footer/footer';
 import { MainPage, AboutPage, WordSetsPage } from '../pages/index';
 import { Switch, Route } from 'react-router-dom';
 import { AddPopUp, WordSetPopUp } from '../components/pop-ups';
+import { useSelector } from 'react-redux';
+import { TOGGLE_APP_THEME } from '../services/actions/index';
 
 function App() {
-  const [themeMode, changeThemeMode] = React.useState('light');
-  const [ isPopUpOpen, setIsPopUpOpen ] = React.useState(false);
 
-  function changeThemeHandler() {
-    const changedTheme = themeMode === 'light' ? 'dark' : 'light';
-    changeThemeMode(changedTheme);
-  };
+  const [ isPopUpOpen, setIsPopUpOpen ] = React.useState(false);
+  const isDarkThemeOn = useSelector(store => store.isDarkThemeOn)
 
   const openPopUpHandler = () => {
     setIsPopUpOpen(!isPopUpOpen)
   }
 
   return (
-    <div className="app colors" data-theme-mode={themeMode}>
-      <Header handleOpenPopUp={openPopUpHandler} onThemeChangeClick={changeThemeHandler} themeStatus={themeMode} />
+    <div className="app colors" data-theme-mode={isDarkThemeOn ? 'dark' : 'light'}>
+      <Header handleOpenPopUp={openPopUpHandler} />
 
       <Switch>
         <Route exact path='/'>

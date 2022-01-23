@@ -14,14 +14,14 @@ function AboutPage() {
 
   return (
     <PageWrap title='About methods'>
-      <ui className={styles.articlesList}>
+      <ul className={styles.articlesList}>
         <li className={styles.element}>
           <ArticleBlock text={articleText1} title={atricleTitle1} image={atricleImage} />
         </li>
         <li className={styles.element}>
           <ArticleBlock text={articleText2} title={atricleTitle2} />
         </li>
-      </ui>
+      </ul>
     </PageWrap>
         
   )

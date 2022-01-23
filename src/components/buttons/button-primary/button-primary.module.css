@@ -1,7 +1,9 @@
 .button {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  gap: 15px;
   align-items: center;
+  justify-content: center;
   background-color: #3772FF;
   border-radius: 50px;
   padding: 10px;

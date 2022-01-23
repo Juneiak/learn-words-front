@@ -5,15 +5,14 @@ import NavTab from "../nav-tab/nav-tab";
 import ButtonPrimary from '../buttons/button-primary/button-primary';
 import { ProfileIcon } from "../icons";
 
-function Header({onThemeChangeClick, themeStatus, handleOpenPopUp}) {
+function Header({ handleOpenPopUp }) {
   const logged = true;
-  function clickHandler() {
-    return true
-  }
+
+
     return (
       <header className={styles.header}>
         <div className={styles.content}>
-          <ThemeButton onClick={onThemeChangeClick} themeStatus={themeStatus}/>
+          <ThemeButton />
           <NavTab />
           <div>
             {
@@ -25,7 +24,7 @@ function Header({onThemeChangeClick, themeStatus, handleOpenPopUp}) {
                   buttonText='ligin via tg'
                   buttonHeight='48px'
                   buttonWidth='160px'
-                  clickHandler={clickHandler} />
+                  clickHandler={() => false} />
             }
           </div>
         </div>
