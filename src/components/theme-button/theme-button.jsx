@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './theme-button.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { TOGGLE_APP_THEME } from '../../services/actions/index'
+import { TOGGLE_APP_THEME } from '../../services/actions/constants'
 
 
 function ThemeButton() {

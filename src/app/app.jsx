@@ -9,7 +9,7 @@ import { MainPage, AboutPage, WordSetsPage } from '../pages/index';
 import { Switch, Route } from 'react-router-dom';
 import { AddPopUp, WordSetPopUp } from '../components/pop-ups';
 import { useSelector } from 'react-redux';
-import { TOGGLE_APP_THEME } from '../services/actions/index';
+import { TOGGLE_APP_THEME } from '../services/actions/constants';
 
 function App() {
 
