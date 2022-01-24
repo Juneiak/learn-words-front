@@ -5,57 +5,9 @@ import { AddIcon } from '../../components/icons';
 import SearchBar from '../../components/search-bar/search-bar';
 import WordList from '../../components/word-list/word-list';
 import PageWrap from '../../components/page-wrap/page-wrap';
-
+import { cardsData, cardsData1 } from '../../data-for-test/data';
 function MainPage() {
-  const cardsData = [
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    },
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    },
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    },
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    },
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    },
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    },
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    }
-  ]
-  const cardsData1 = [
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    },
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    },
-  ]
+  
 
   return (
     <PageWrap>

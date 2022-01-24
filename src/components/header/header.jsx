@@ -5,10 +5,9 @@ import NavTab from "../nav-tab/nav-tab";
 import ButtonPrimary from '../buttons/button-primary/button-primary';
 import { ProfileIcon } from "../icons";
 
-function Header({ handleOpenPopUp }) {
+function Header() {
   const logged = true;
-
-
+  
     return (
       <header className={styles.header}>
         <div className={styles.content}>
@@ -17,7 +16,7 @@ function Header({ handleOpenPopUp }) {
           <div>
             {
               logged 
-              ? <button onClick={handleOpenPopUp} className='button-animation '>
+              ? <button onClick={() => false} className='button-animation '>
                   <ProfileIcon />
                 </button>
               : <ButtonPrimary

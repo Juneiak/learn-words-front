@@ -6,7 +6,7 @@ import { TOGGLE_APP_THEME } from '../../services/actions/constants'
 
 function ThemeButton() {
   const dispatch = useDispatch();
-  const isDarkThemeOn = useSelector(store => store.isDarkThemeOn)
+  const isDarkThemeOn = useSelector(store => store.app.isDarkThemeOn)
 
   const handleThemeChange = () => {
     dispatch({type: TOGGLE_APP_THEME})

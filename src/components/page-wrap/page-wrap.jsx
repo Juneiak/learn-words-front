@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './page-wrap.module.css';
 
-function PageWrap({ children, title}) {
+function PageWrap({ children, title }) {
 
     return (
       <main className={styles.about}>

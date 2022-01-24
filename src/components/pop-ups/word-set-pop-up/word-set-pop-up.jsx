@@ -3,75 +3,50 @@ import styles from './word-set-pop-up.module.css';
 import PopUpLayout from "../pop-up-layout/pop-up-layout";
 import WordList from "../../word-list/word-list";
 import ButtonPrimary from "../../buttons/button-primary/button-primary";
+import {useDispatch, useSelector} from 'react-redux';
+import { REMOVE_SELECTED_WORD_SET } from "../../../services/actions/constants";
 
-function WordSetPopUp({ handleCLose }) {
-  const aboutText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-  const setTitle = 'Basic';
-  // take data from redux
+function WordSetPopUp() {
+  const {
+    selectedWordSet,
+    selectedWordSetIsLoading,
+    selectedWordSetIsError
+  } = useSelector(store => ({
+    selectedWordSet: store.funcs.selectedWordSet,
+    selectedWordSetIsLoading: store.funcs.selectedWordSetIsLoading,
+    selectedWordSetIsError: store.funcs.selectedWordSetIsError
+  }));
+  const dispatch = useDispatch();
 
-  const cardsData = [
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    },
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    },
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    },
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    },
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    },
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    },
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    }
-  ]
-  const cardsData1 = [
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    },
-    {
-      word: 'бла',
-      translation: 'bla',
-      imageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-    },
-  ]
+  const handlePopUpClose = () => {
+    dispatch({type: REMOVE_SELECTED_WORD_SET})
+  }
+  
     return (
-      <PopUpLayout handleCLose={handleCLose}>
+      <PopUpLayout handleCLose={handlePopUpClose}>
         <div className={styles.content}>
-          <h3 className={`${styles.setTitle} text-h3`}>{setTitle}</h3>
-          <p className={`${styles.about} text-body`}>{aboutText}</p>
-          <div className={styles.list}>
-            <WordList cardsData={cardsData} size='small' />
-          </div>
-          <ButtonPrimary
-            buttonText='Add word set'
-            clickHandler={() => false}
-            buttonWidth='100%'
-            buttonHeight='56px'
-          />
+          {
+            selectedWordSetIsLoading
+            ? <h1 style={{color: 'red'}}>loading</h1>
+            : (!selectedWordSet?.setId || selectedWordSetIsError)
+            ? <h1 style={{color: 'red'}}>error</h1>
+            : (
+                <>
+                <h3 className={`${styles.setTitle} text-h3`}>{selectedWordSet.title}</h3>
+                <p className={`${styles.about} text-body`}>{selectedWordSet.about}</p>
+                <div className={styles.list}>
+                  <WordList cardsData={selectedWordSet.words} size='small' />
+                </div>
+                <ButtonPrimary
+                  buttonText='Add word set'
+                  clickHandler={() => false}
+                  buttonWidth='100%'
+                  buttonHeight='56px'
+                />
+                </>
+              )
+          }
+
         </div>
       </PopUpLayout>
     )

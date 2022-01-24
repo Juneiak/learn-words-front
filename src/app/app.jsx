@@ -9,12 +9,19 @@ import { MainPage, AboutPage, WordSetsPage } from '../pages/index';
 import { Switch, Route } from 'react-router-dom';
 import { AddPopUp, WordSetPopUp } from '../components/pop-ups';
 import { useSelector } from 'react-redux';
-import { TOGGLE_APP_THEME } from '../services/actions/constants';
 
 function App() {
 
   const [ isPopUpOpen, setIsPopUpOpen ] = React.useState(false);
-  const isDarkThemeOn = useSelector(store => store.isDarkThemeOn)
+  const {
+    isDarkThemeOn,
+    addPopUpIsOpen,
+    selectedWordSet 
+  } = useSelector(store => ({
+    isDarkThemeOn: store.app.isDarkThemeOn,
+    addPopUpIsOpen: store.app.addPopUpIsOpen,
+    selectedWordSet: store.funcs.selectedWordSet,
+  }))
 
   const openPopUpHandler = () => {
     setIsPopUpOpen(!isPopUpOpen)
@@ -41,8 +48,8 @@ function App() {
       <Footer />
 
       <Switch>
-        {/* {isPopUpOpen && <AddPopUp handleCLose={openPopUpHandler} />} */}
-        {isPopUpOpen && <WordSetPopUp handleCLose={openPopUpHandler} />}
+        {addPopUpIsOpen && <AddPopUp handleCLose={openPopUpHandler} />}
+        {selectedWordSet?.setId && <WordSetPopUp handleCLose={openPopUpHandler} />}
 
       </Switch>
     </div>
