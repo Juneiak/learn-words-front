@@ -1,0 +1,25 @@
+.link {
+  text-decoration: none;
+  transition: 0.3s linear opacity;
+  opacity: 1;
+}
+
+.link:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.button-animation {
+  transition: 0.3s linear opacity;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0);
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.button-animation:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+

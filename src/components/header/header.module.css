@@ -1,7 +1,15 @@
 .header {
-  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  padding: 16px 0 16px 0;
+  width: 100%;
+  background: var(--color-basic-2);
 }
 
-.title {
-  color: var(--text-color)
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1160px;
 }

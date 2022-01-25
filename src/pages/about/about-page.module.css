@@ -1,0 +1,13 @@
+.articlesList {
+  list-style: none;
+  
+}
+
+.element {
+  margin-bottom: 50px;
+}
+
+
+.element:last-child {
+  margin-bottom: 0;
+}

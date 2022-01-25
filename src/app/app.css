@@ -1,13 +1,14 @@
 .app {
-  margin: auto;
+  background-color: var(--color-basic-1);
+  width: 100%;
 }
 
-:root {
-  --background-color: white;
-  --text-color: black;
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-[site-theme-mode='dark'] {
-  --background-color: black;
-  --text-color: white;
+body {
+  margin: 0;
 }

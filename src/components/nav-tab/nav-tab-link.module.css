@@ -1,0 +1,25 @@
+.element {
+  margin-right: 60px;
+}
+
+.element:last-child {
+  margin-right: 0;
+}
+
+
+.link {
+  color: var(--text-color);
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 60px;
+}
+
+.link:last-child {
+  margin-right: 0;
+}
+
+.linkName {
+  margin-left: 10px;
+}
