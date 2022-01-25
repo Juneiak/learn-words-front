@@ -9,7 +9,7 @@ function AddButton() {
   const handleButtonClick = () => {
     dispatch({type: ADD_POPUP_TOGGLE})
   }
-  
+
   return (
     <button 
       type="button"
