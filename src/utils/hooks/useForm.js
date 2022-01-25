@@ -16,8 +16,8 @@ const useForm = () => {
 
 const useFormWithValidation = () => {
   const [ values, setValues ] = React.useState({});
-  const [ errors, setErrors ] = React.useState();
-  const [ isValid, setIsValid ] = React.useState()
+  const [ errors, setErrors ] = React.useState({});
+  const [ isValid, setIsValid ] = React.useState(false);
 
 
   const handleChange = (evt) => {
