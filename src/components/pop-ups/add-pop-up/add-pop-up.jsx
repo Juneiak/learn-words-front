@@ -4,11 +4,17 @@ import PopUpLayout from "../pop-up-layout/pop-up-layout";
 import { FolderIcon } from "../../icons";
 import ButtonPrimary from "../../buttons/button-primary/button-primary";
 import ButtonSecondary from "../../buttons/button-secondary/button-secondary";
+import { ADD_POPUP_TOGGLE } from '../../../services/actions/constants';
+import { useDispatch } from 'react-redux';
 
-function AddPopUp({ handleCLose }) {
+function AddPopUp() {
+  const dispatch = useDispatch();
 
+  const handlePopUpClose = () => {
+    dispatch({type: ADD_POPUP_TOGGLE})
+  }
     return (
-      <PopUpLayout handleCLose={handleCLose}>
+      <PopUpLayout handleCLose={handlePopUpClose}>
         <div className={styles.content}>
           <h3 className={`${styles.title} text-h3`}>Add your word to learn</h3>
           <form className={styles.form}>

@@ -23,13 +23,9 @@ function App() {
     selectedWordSet: store.funcs.selectedWordSet,
   }))
 
-  const openPopUpHandler = () => {
-    setIsPopUpOpen(!isPopUpOpen)
-  }
-
   return (
     <div className="app colors" data-theme-mode={isDarkThemeOn ? 'dark' : 'light'}>
-      <Header handleOpenPopUp={openPopUpHandler} />
+      <Header handleOpenPopUp={} />
 
       <Switch>
         <Route exact path='/'>

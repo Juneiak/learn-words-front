@@ -30,7 +30,7 @@ const getWordSet = (wordSetId) => {
       setTimeout(()=> {
         const findedWordSet = wordSets.find(set => set.setId === wordSetId);
         resolve(findedWordSet) // here is data of new word
-      }, 3000)
+      }, 1000)
     })
     .then((wordSet) => {
       dispatch({type: SELECT_WORD_SET, wordSet})
@@ -62,7 +62,7 @@ const addNewWord = (newWordData) => {
       setTimeout(()=> {
         resolve(newWordData);
         
-      }, 3000)
+      }, 1000)
     })
     .then((addedWordData) => {
       dispatch({type: ADD_NEW_WORD, dataToAdd: addedWordData})
