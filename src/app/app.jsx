@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="app colors" data-theme-mode={isDarkThemeOn ? 'dark' : 'light'}>
-      <Header handleOpenPopUp={} />
+      <Header />
 
       <Switch>
         <Route exact path='/'>
@@ -44,8 +44,8 @@ function App() {
       <Footer />
 
       <Switch>
-        {addPopUpIsOpen && <AddPopUp handleCLose={openPopUpHandler} />}
-        {selectedWordSet?.setId && <WordSetPopUp handleCLose={openPopUpHandler} />}
+        {addPopUpIsOpen && <AddPopUp />}
+        {selectedWordSet?.setId && <WordSetPopUp />}
 
       </Switch>
     </div>
