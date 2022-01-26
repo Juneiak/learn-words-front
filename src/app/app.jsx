@@ -5,7 +5,7 @@ import '../ui/text.css';
 import '../ui/standard-patterns.css';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
-import { MainPage, AboutPage, WordSetsPage } from '../pages/index';
+import { MainPage, AboutPage, WordSetsPage, StudyPage } from '../pages/index';
 import { Switch, Route } from 'react-router-dom';
 import { AddPopUp, WordSetPopUp } from '../components/pop-ups';
 import { useSelector } from 'react-redux';
@@ -39,6 +39,11 @@ function App() {
         <Route exact path='/word-sets'>
           <WordSetsPage />
         </Route>
+
+        <Route exact path='/study'>
+          <StudyPage />
+        </Route>
+
       </Switch>
 
       <Footer />

@@ -1,0 +1,21 @@
+.wordContainer {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  width: 100%;
+  padding: 25px 15px;
+  box-sizing: border-box;
+  gap: 20px;
+  border: 2px var(--color-basic-3) solid;
+  border-radius: 12px;
+  justify-items: center;
+  align-items: center;
+}
+
+.wordImage {
+  width: 150px;
+  aspect-ratio: 1 / 1;
+}
+
+.word {
+
+}

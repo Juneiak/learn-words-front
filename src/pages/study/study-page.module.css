@@ -1,0 +1,8 @@
+.studyModule {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fill, max-content);
+  width: 100%;
+  max-width: 600px;
+}

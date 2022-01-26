@@ -4,19 +4,17 @@
   grid-template-rows: repeat(fit-content);
   justify-items: center;
   box-sizing: border-box;
+  gap: 20px;
 }
 
 .setTitle {
-  margin-bottom: 20px;
   width: 100%;
 }
 
 .about {
-  margin-bottom: 20px;
   height: 75px;
 }
 
 .list {
-  margin-bottom: 20px;
   width: 100%;
 }

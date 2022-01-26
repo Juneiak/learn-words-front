@@ -3,6 +3,7 @@
   gap: 10px;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(auto-fill);
+  width: 100%;
 }
 
 .input {
