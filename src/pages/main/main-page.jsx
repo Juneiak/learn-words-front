@@ -5,14 +5,14 @@ import SearchBar from '../../components/search-bar/search-bar';
 import WordList from '../../components/word-list/word-list';
 import PageWrap from '../../components/page-wrap/page-wrap';
 import { cardsData, cardsData1 } from '../../data-for-test/data';
-
+import useWindowDimensions from '../../utils/hooks/useWindowDimensions';
 function MainPage() {
-  
+  const { width } = useWindowDimensions();
 
   return (
     <PageWrap>
       <section className={styles.functions}>
-        <AddButton />
+        {width > 1200 && <AddButton />}
         <SearchBar placeholder='find added word' />
       </section>
 

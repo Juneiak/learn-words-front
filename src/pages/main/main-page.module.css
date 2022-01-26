@@ -27,3 +27,10 @@
   gap: 140px;
   width: 100%;
 }
+
+@media screen and (max-width: 1200px) {
+  .functions {
+    grid-template-columns: 1fr;
+
+  }
+}
