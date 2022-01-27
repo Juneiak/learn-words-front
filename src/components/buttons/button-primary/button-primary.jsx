@@ -6,6 +6,7 @@ function ButtonPrimary({
   clickHandler,
   buttonWidth='max-content',
   buttonHeight='max-content',
+  isActive=true,
   children,
 }) {
   return (
@@ -14,9 +15,10 @@ function ButtonPrimary({
         width: buttonWidth,
         height: buttonHeight
       }}
+      disabled={!isActive}
       type="button"
       onClick={clickHandler}
-      className={`${styles.button} text-button `}
+      className={`${styles.button} text-button  ${!isActive && 'buttonDisabled'}`}
     >
       {children && children}
       <span className={styles.text}>{buttonText}</span>

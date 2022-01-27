@@ -6,6 +6,7 @@ function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.content}>
+
         <span className={styles.author}>
           pet-project. Juneiak х ModalLab
         </span>
@@ -16,8 +17,8 @@ function Footer() {
             <FooterLink linkName='Telegram' linkHref='#'/>
             <FooterLink linkName='instagram' linkHref='#'/>
           </ul>
-      </div>
-      
+        </div>
+        
       </div>
     </footer>
   )

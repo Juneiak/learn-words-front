@@ -23,7 +23,7 @@
   color: #FCFCFD;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   .button {
     width: 56px;
     height: 56px;

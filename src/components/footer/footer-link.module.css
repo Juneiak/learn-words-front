@@ -3,11 +3,16 @@
 }
 
 .element {
-  margin-right: 45px;
+  margin: 0 45px 0 0;
 }
 
 .element:last-child {
-  margin-right: 0;
+  margin: 0;
 }
 
 
+@media screen and (max-width: 620px) {
+  .element {
+    margin: 0 0 10px 0;
+  }
+}

@@ -23,4 +23,27 @@
 
 .image {
   grid-area: image;
+  justify-self: center;
+  aspect-ratio: 3 / 2;
+  width: 100%;
+  max-width: 500px;
+}
+
+@media screen and (max-width: 1200px) {
+  .article {
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content max-content max-content;
+    grid-template-areas: 
+    'title'
+    'text'
+    'image';
+    column-gap: 0;
+    row-gap: 30px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .article {
+    row-gap: 15px;
+  }
 }

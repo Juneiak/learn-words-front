@@ -21,16 +21,26 @@
   padding-bottom: 60px;
 }
 
-.lists {
+.wordLists {
+  width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 140px;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fill, max-content);
+  gap: 15px;
+  justify-items: center;
+}
+
+.lists {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
 }
 
 @media screen and (max-width: 1200px) {
   .functions {
     grid-template-columns: 1fr;
-
+  }
+  .lists {
+    justify-content: center;
   }
 }
