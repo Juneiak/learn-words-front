@@ -9,12 +9,12 @@ import {
   SettingsIcon,
 } from '../icons/index';
 
-function NavTab() {
+function NavTab({ isVertical=false }) {
   const isLogin = true;
-
+  
     return (
       <nav className={styles.nav}>
-        <ul className={styles.list}>
+        <ul className={`${styles.list} ${isVertical && styles.verticalList}`}>
           <NavTabLink linkName='About' linkTo='/about' icon={AboutIcon} />
           {isLogin && <NavTabLink linkTo='/word-sets' icon={DocumentSetIcon} linkName='Word sets' />}
           {isLogin && <NavTabLink linkTo='/' icon={DocumentIcon} linkName='My words' />}

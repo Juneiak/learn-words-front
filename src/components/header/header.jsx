@@ -6,6 +6,7 @@ import ButtonPrimary from '../buttons/button-primary/button-primary';
 import { ProfileIcon, BurgerIcon } from "../icons";
 import useWindowDimensions from "../../utils/hooks/useWindowDimensions";
 import ButtonIcon from "../buttons/button-icon/button-icon";
+import ProfileButton from "../buttons/profile-button/profile-button";
 
 function Header() {
   const logged = true;
@@ -22,9 +23,7 @@ function Header() {
               ? 
                 width > 1200 
                   ? 
-                  <ButtonIcon handleButtonClick={() => false}>
-                    <ProfileIcon />
-                  </ButtonIcon>
+                  <ProfileButton />
                   :
                   <ButtonIcon handleButtonClick={() => false}>
                     <BurgerIcon />

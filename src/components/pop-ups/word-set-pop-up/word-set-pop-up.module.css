@@ -1,6 +1,6 @@
 .content {
   display: grid;
-  grid-template-columns: minmax(320px, 470px);
+  grid-template-columns: minmax(290px, 470px);
   grid-template-rows: repeat(fit-content);
   justify-items: center;
   box-sizing: border-box;
@@ -17,4 +17,8 @@
 
 .list {
   width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  
 }

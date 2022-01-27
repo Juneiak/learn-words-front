@@ -1,0 +1,19 @@
+.wraper {
+  position: relative;
+  border-radius: 12px;
+  padding: 30px;
+  background-color: var(--color-basic-1);
+  box-sizing: border-box;
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+@media screen and (max-width: 900px) {
+  .contentWraper {
+    padding: 15px;
+  }
+}

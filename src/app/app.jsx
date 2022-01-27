@@ -9,10 +9,11 @@ import { MainPage, AboutPage, WordSetsPage, StudyPage } from '../pages/index';
 import { Switch, Route } from 'react-router-dom';
 import { AddPopUp, WordSetPopUp } from '../components/pop-ups';
 import { useSelector } from 'react-redux';
+import SideMenu from '../components/pop-ups/side-menu/side-menu';
 
 function App() {
 
-  const [ isPopUpOpen, setIsPopUpOpen ] = React.useState(false);
+  const [ isPopUpOpen, setIsPopUpOpen ] = React.useState(true);
   const {
     isDarkThemeOn,
     addPopUpIsOpen,
@@ -51,7 +52,7 @@ function App() {
       <Switch>
         {addPopUpIsOpen && <AddPopUp />}
         {selectedWordSet?.setId && <WordSetPopUp />}
-
+        {!isPopUpOpen && <SideMenu />}
       </Switch>
     </div>
   );

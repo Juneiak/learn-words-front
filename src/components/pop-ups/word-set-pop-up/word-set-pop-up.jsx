@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './word-set-pop-up.module.css';
-import PopUpLayout from "../pop-up-layout/pop-up-layout";
+import PopUpWraper from "../pop-up-wraper/pop-up-wraper";
 import WordList from "../../word-list/word-list";
 import ButtonPrimary from "../../buttons/button-primary/button-primary";
 import {useDispatch, useSelector} from 'react-redux';
@@ -23,7 +23,7 @@ function WordSetPopUp() {
   }
   
     return (
-      <PopUpLayout handleCLose={handlePopUpClose}>
+      <PopUpWraper handleCLose={handlePopUpClose}>
         <div className={styles.content}>
           {
             selectedWordSetIsLoading
@@ -48,7 +48,7 @@ function WordSetPopUp() {
           }
 
         </div>
-      </PopUpLayout>
+      </PopUpWraper>
     )
 }
 

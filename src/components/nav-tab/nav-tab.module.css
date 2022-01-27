@@ -6,10 +6,15 @@
 }
 
 .list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fil, px);
+  grid-template-rows: 1fr;
   list-style: none;
   padding: 0;
   margin: 0;
+  gap: 60px;
+}
+
+.verticalList {
+  flex-direction: column;
 }

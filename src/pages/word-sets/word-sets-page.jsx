@@ -2,10 +2,6 @@ import React from "react";
 import PageWrap from "../../components/page-wrap/page-wrap";
 import styles from './word-sets-page.module.css';
 import WordSetCard from "../../components/word-set-card/word-set-card";
-// import animalImage from '../../images/word-set-image/animal.png';
-// import basicImage from '../../images/word-set-image/basic.png';
-// import travelImage from '../../images/word-set-image/travel.png';
-// import foodImage from '../../images/word-set-image/food.png';
 import SearchBar from "../../components/search-bar/search-bar";
 import { wordSetList } from '../../data-for-test/data';
 
