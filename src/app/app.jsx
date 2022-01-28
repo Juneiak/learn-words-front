@@ -5,27 +5,29 @@ import '../ui/text.css';
 import '../ui/standard-patterns.css';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
-import { MainPage, AboutPage, WordSetsPage } from '../pages/index';
+import { MainPage, AboutPage, WordSetsPage, StudyPage } from '../pages/index';
 import { Switch, Route } from 'react-router-dom';
 import { AddPopUp, WordSetPopUp } from '../components/pop-ups';
 import { useSelector } from 'react-redux';
+import SideMenu from '../components/pop-ups/side-menu/side-menu';
 
 function App() {
 
-  const [ isPopUpOpen, setIsPopUpOpen ] = React.useState(false);
   const {
     isDarkThemeOn,
     addPopUpIsOpen,
-    selectedWordSet 
+    selectedWordSet,
+    isSideMenuOpen,
   } = useSelector(store => ({
     isDarkThemeOn: store.app.isDarkThemeOn,
     addPopUpIsOpen: store.app.addPopUpIsOpen,
     selectedWordSet: store.funcs.selectedWordSet,
+    isSideMenuOpen: store.app.isSideMenuOpen
   }))
 
   return (
     <div className="app colors" data-theme-mode={isDarkThemeOn ? 'dark' : 'light'}>
-      <Header handleOpenPopUp={} />
+      <Header />
 
       <Switch>
         <Route exact path='/'>
@@ -39,14 +41,19 @@ function App() {
         <Route exact path='/word-sets'>
           <WordSetsPage />
         </Route>
+
+        <Route exact path='/study'>
+          <StudyPage />
+        </Route>
+
       </Switch>
 
       <Footer />
 
       <Switch>
-        {addPopUpIsOpen && <AddPopUp handleCLose={openPopUpHandler} />}
-        {selectedWordSet?.setId && <WordSetPopUp handleCLose={openPopUpHandler} />}
-
+        {addPopUpIsOpen && <AddPopUp />}
+        {selectedWordSet?.setId && <WordSetPopUp />}
+        {isSideMenuOpen && <SideMenu />}
       </Switch>
     </div>
   );

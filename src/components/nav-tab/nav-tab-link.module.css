@@ -1,12 +1,3 @@
-.element {
-  margin-right: 60px;
-}
-
-.element:last-child {
-  margin-right: 0;
-}
-
-
 .link {
   color: var(--text-color);
   text-decoration: none;

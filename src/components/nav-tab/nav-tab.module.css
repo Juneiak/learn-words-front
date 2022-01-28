@@ -6,10 +6,18 @@
 }
 
 .list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: max-content;
+  grid-auto-flow: column;
   list-style: none;
   padding: 0;
   margin: 0;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.verticalList {
+  grid-auto-flow: row;
+  gap: 20px;
 }

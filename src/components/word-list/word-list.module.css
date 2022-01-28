@@ -34,11 +34,14 @@
   height: 100%;
   box-sizing: border-box;
   display: flex;
+  justify-content: center;
 }
 
 .listBorderSmall {
   box-sizing: border-box;
   height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .list {
@@ -63,4 +66,24 @@
   background-color: var(--color-basic-3);
   width: 10px;
   border-radius: 50px;
+}
+
+
+@media screen and (max-width: 620px) {
+  .listBorderBig {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .list {
+    padding: 0;
+  }
+  .list::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  .list::-webkit-scrollbar-thumb {
+    width: 0;
+  }
 }

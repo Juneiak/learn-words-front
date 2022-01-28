@@ -18,4 +18,11 @@
 
 .text {
   color: #FCFCFD;
+  text-align: center;
+  width: 100%;
+}
+
+.buttonDisabled {
+  background-color: var(--color-basic-2);
+  color: var(--text-color)
 }

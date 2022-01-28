@@ -4,11 +4,14 @@
   gap: 15px;
   align-items: center;
   justify-content: center;
+  justify-items: center;
   background-color: #3772FF;
   border-radius: 50px;
-  padding: 10px;
+  padding: 10px 30px;
   transition: opacity 0.2s linear;
   border: none;
+  box-sizing: border-box;
+  width: max-content;
 }
 
 .button:hover {
@@ -18,4 +21,17 @@
 
 .text {
   color: #FCFCFD;
+}
+
+@media screen and (max-width: 1200px) {
+  .button {
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    gap: 0;
+  }
+
+  .text {
+    display: none;
+  }
 }

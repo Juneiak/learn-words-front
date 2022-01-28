@@ -1,0 +1,22 @@
+.button {
+  padding: 9px 25px;
+  margin: 0;
+  height: 48px;
+  width: max-content;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 24px min-content;
+  border-radius: 50px;
+  border: 3px solid var(--color-basic-3);
+  gap: 15px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  transition: 0.3s linear opacity;
+}
+
+
+.button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}

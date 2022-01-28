@@ -1,0 +1,29 @@
+.inputContainer {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fill);
+  width: 100%;
+}
+
+.input {
+  border: 1px solid var(--color-basic-3);
+  padding: 20px 15px;
+  width: 100%;
+  border-radius: 12px;
+  box-sizing: border-box;
+  background-color: var(--color-basic-1);
+}
+
+.errorInput {
+  border-color: var(--color-red);
+}
+
+.wordInput:focus {
+  outline: none;
+}
+
+.errorText {
+  color: var(--color-red);
+  width: 100%;
+}

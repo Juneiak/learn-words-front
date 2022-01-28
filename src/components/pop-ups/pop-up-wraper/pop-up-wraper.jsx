@@ -1,13 +1,13 @@
 import React from "react";
-import ReactDOM from 'react-dom';
-import styles from './pop-up-layout.module.css';
+import styles from './pop-up-wraper.module.css';
 import { CloseIcon } from "../../icons";
+import Layout from "../layout/layout";
 
-function PopUpLayout({ children, handleCLose }) {
+function PopUpWraper({ children, handleCLose }) {
 
     return (
-      <div className={styles.overlay}>
-        <section className={styles.contentWraper}>
+      <Layout closeHandler={handleCLose}>
+        <section className={styles.wraper}>
           <button
               type="button"
               onClick={handleCLose}
@@ -16,8 +16,8 @@ function PopUpLayout({ children, handleCLose }) {
           </button>
           {children}
         </section>
-      </div>
+      </Layout>
     )
 }
 
-export default PopUpLayout;
+export default PopUpWraper;

@@ -10,6 +10,7 @@ import ArrowIcon from "./arrow-icon";
 import ProfileIcon from "./profile-icon";
 import CloseIcon from "./close-icon";
 import FolderIcon from "./folder-icon";
+import BurgerIcon from "./burger-icon";
 
 export {
   AboutIcon,
@@ -24,4 +25,5 @@ export {
   ProfileIcon,
   CloseIcon,
   FolderIcon,
+  BurgerIcon,
 }
