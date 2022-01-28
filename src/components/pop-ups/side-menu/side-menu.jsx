@@ -3,22 +3,25 @@ import styles from './side-menu.module.css';
 import Layout from "../layout/layout";
 import NavTab from "../../nav-tab/nav-tab";
 import { CloseIcon } from "../../icons";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import ProfileButton from '../../buttons/profile-button/profile-button';
+import { TOGGLE_SIDE_MENU_OPEN } from '../../../services/actions/constants';
 
 function SideMenu() {
+
+  const [ isOpen, setIsOpen ] = React.useState(false)
   const dispatch = useDispatch();
-  const isOpen = true;
+
   const handleCLose = () => {
-    dispatch({type: 'fuck'})
+    dispatch({type: TOGGLE_SIDE_MENU_OPEN})
   }
-
-  React.useState(() => {
-
+  
+  React.useEffect(() => {
+    setIsOpen(true)
   }, []);
 
     return (
-      <Layout>
+      <Layout closeHandler={handleCLose} >
         <section className={`
           ${styles.sideMenu}
           ${isOpen && styles.sideMenuOpened}

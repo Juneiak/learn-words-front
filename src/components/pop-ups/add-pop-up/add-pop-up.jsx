@@ -13,7 +13,8 @@ import useWindowDimensions from '../../../utils/hooks/useWindowDimensions';
 function AddPopUp() {
   const dispatch = useDispatch();
   const { values, errors, handleChange } = useFormWithValidation();
-  const { width } = useWindowDimensions()
+  const { width } = useWindowDimensions();
+  
   const handlePopUpClose = () => {
     dispatch({type: ADD_POPUP_TOGGLE})
   }

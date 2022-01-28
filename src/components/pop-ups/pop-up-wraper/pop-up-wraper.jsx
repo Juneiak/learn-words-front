@@ -6,7 +6,7 @@ import Layout from "../layout/layout";
 function PopUpWraper({ children, handleCLose }) {
 
     return (
-      <Layout>
+      <Layout closeHandler={handleCLose}>
         <section className={styles.wraper}>
           <button
               type="button"

@@ -13,15 +13,16 @@ import SideMenu from '../components/pop-ups/side-menu/side-menu';
 
 function App() {
 
-  const [ isPopUpOpen, setIsPopUpOpen ] = React.useState(true);
   const {
     isDarkThemeOn,
     addPopUpIsOpen,
-    selectedWordSet 
+    selectedWordSet,
+    isSideMenuOpen,
   } = useSelector(store => ({
     isDarkThemeOn: store.app.isDarkThemeOn,
     addPopUpIsOpen: store.app.addPopUpIsOpen,
     selectedWordSet: store.funcs.selectedWordSet,
+    isSideMenuOpen: store.app.isSideMenuOpen
   }))
 
   return (
@@ -52,7 +53,7 @@ function App() {
       <Switch>
         {addPopUpIsOpen && <AddPopUp />}
         {selectedWordSet?.setId && <WordSetPopUp />}
-        {!isPopUpOpen && <SideMenu />}
+        {isSideMenuOpen && <SideMenu />}
       </Switch>
     </div>
   );

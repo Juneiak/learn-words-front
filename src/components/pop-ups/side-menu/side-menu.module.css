@@ -10,11 +10,12 @@
   background-color: var(--color-basic-1);
   height: 100%;
   overflow: hidden;
-  width: 0;
+  width: 1%;
+  transition: 0.3s linear width;
 }
 
 .sideMenuOpened {
-  width: 40%
+  width: 40%;
 }
 
 .closeButton {

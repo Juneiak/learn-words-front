@@ -7,14 +7,17 @@
 
 .list {
   display: grid;
-  grid-template-columns: repeat(auto-fil, px);
   grid-template-rows: 1fr;
+  grid-template-columns: max-content;
+  grid-auto-flow: column;
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 60px;
+  justify-content: space-between;
+  width: 90%;
 }
 
 .verticalList {
-  flex-direction: column;
+  grid-auto-flow: row;
+  gap: 20px;
 }

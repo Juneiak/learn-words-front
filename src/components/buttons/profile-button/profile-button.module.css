@@ -8,7 +8,7 @@
   grid-template-columns: 24px min-content;
   border-radius: 50px;
   border: 3px solid var(--color-basic-3);
-  gap: 25px;
+  gap: 15px;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0);
   opacity: 1;
