@@ -2,7 +2,6 @@ import {
   TOGGLE_APP_THEME,
   ADD_POPUP_TOGGLE,
   TOGGLE_SIDE_MENU_OPEN,
-
 } from "../actions/constants";
 
 const initial = {

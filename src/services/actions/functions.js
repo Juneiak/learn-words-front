@@ -2,11 +2,45 @@ import {
   SELECT_WORD_SET,
   SELECT_WORD_SET_IS_LOADING,
   SELECT_WORD_SET_IS_ERROR,
+
   ADD_NEW_WORD,
   ADD_NEW_WORD_IS_LOADING,
   ADD_NEW_WORD_IS_ERROR,
+
+  SET_USER_WORDS,
+  SET_USER_WORDS_IS_ERROR,
+  SET_USER_WORDS_IS_LOADING
 } from './constants';
-import {wordSets} from '../../data-for-test/data';
+import { wordSets, userWords } from '../../data-for-test/data';
+
+const getUserWords = () => {
+  // return (dispatch) => {
+  //   dispatch({type: SET_USER_WORDS_IS_LOADING});
+  //   fetch('bla-bla-bla.com/', {
+  //     method: 'GET',
+  //   })
+  //   .then((fetchedUserWords) => {
+  //     dispatch({type: SET_USER_WORDS, fetchedUserWords})
+  //   })
+  //   .catch((err) => {
+  //     dispatch({type: SET_USER_WORDS_IS_ERROR})
+  //   })
+  // }
+  return (dispatch) => {
+    dispatch({type: SET_USER_WORDS_IS_LOADING});
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(userWords)
+      }, 500)
+    })
+    .then((fetchedUserWords) => {
+      dispatch({type: SET_USER_WORDS, fetchedUserWords})
+    })
+    .catch((err) => {
+      dispatch({type: SET_USER_WORDS_IS_ERROR})
+    })
+  }
+}
 
 const getWordSet = (wordSetId) => {
   // return (dispatch) => {
@@ -55,7 +89,6 @@ const addNewWord = (newWordData) => {
   //     dispatch({type: ADD_NEW_WORD_IS_ERROR})
   //   })
   // }
-
   return (dispatch) => {
     dispatch({type: ADD_NEW_WORD_IS_LOADING})
     new Promise((resolve, reject) => {
@@ -75,5 +108,6 @@ const addNewWord = (newWordData) => {
 
 export {
   getWordSet,
-  addNewWord
+  addNewWord,
+  getUserWords
 }

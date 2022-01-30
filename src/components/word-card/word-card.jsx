@@ -3,7 +3,7 @@ import styles from './word-card.module.css';
 import { DeleteIcon, ArrowIcon, AddIcon, ReloadIcon } from "../icons";
 import ProgressBar from "../progress-bar/progress-bar";
 
-function WordCard({ data, isNew=false }) {
+function WordCard({ data }) {
   
   return (
     <article className={styles.card}>
@@ -14,7 +14,7 @@ function WordCard({ data, isNew=false }) {
         <span className={`${styles.word} text-caption`}>{data.translation}</span>
       </div>
       <div className={styles.icon}>
-        {isNew 
+        {data.isNew 
           ? <AddIcon size='big' constTheme='light' />
           : data.progress === 100 
             ? <ReloadIcon />

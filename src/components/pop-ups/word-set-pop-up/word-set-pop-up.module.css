@@ -13,6 +13,20 @@
 
 .about {
   height: 75px;
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
+
+.about::-webkit-scrollbar {
+  background-color: var(--color-basic-2);
+  width: 10px;
+  border-radius: 50px;
+}
+
+.about::-webkit-scrollbar-thumb {
+  background-color: var(--color-basic-3);
+  width: 10px;
+  border-radius: 50px;
 }
 
 .list {
