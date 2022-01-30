@@ -1,6 +1,6 @@
 # Пет-проект “learnWords”
 Одностраничное приложение для запоминание слов методом интервального повторение  
-site - 'https://juneiak.github.io/learn-words-front/main'  
+[site](https://juneiak.github.io/learn-words-front/)  
 
 ## Технологии:
 + JS
