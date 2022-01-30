@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './app/app';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './services/reducers/rootReducer';
 import { Provider } from 'react-redux';
@@ -16,7 +16,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <HashRouter  basename='/'>
+          <App />
+        </HashRouter>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
