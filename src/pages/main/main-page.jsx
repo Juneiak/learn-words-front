@@ -17,17 +17,16 @@ function MainPage() {
   const [ isSecondList, setIsSecondList] = React.useState(false);
   const { width } = useWindowDimensions();
   const {
-    userWords,
+    userLearningWords,
+    userLearnedWords,
     userWordsIsLoading,
     userWordsIsError,
   } = useSelector(store => ({
-    userWords: store.funcs.userWords,
+    userLearningWords: store.funcs.userLearningWords,
+    userLearnedWords: store.funcs.userLearnedWords,
     userWordsIsLoading: store.funcs.userWordsIsLoading,
     userWordsIsError: store.funcs.userWordsIsError,
   }))
-
-  const wordsToStudy = userWords.filter(word => word.progress != 100);
-  const learnedWords = userWords.filter(word => word.progress === 100);
 
   const toggleList = () => {
     setIsSecondList(!isSecondList);
@@ -36,7 +35,6 @@ function MainPage() {
   React.useEffect(() => {
     if (!sessionStorage.getItem('isNewSessionStart')) {
       dispatch(getUserWords());
-      console.log(1)
       sessionStorage.setItem('isNewSessionStart', 'true'); // only for non backend use
     }
   }, [])
@@ -58,19 +56,18 @@ function MainPage() {
             : <div className={styles.lists}>
                 {<WordList 
                   size='big'
-                  cardsData={isSecondList ? wordsToStudy : wordsToStudy}
+                  cardsData={isSecondList ? userLearningWords : userLearnedWords}
                   title={width > 1200 && 'Words to study'}
                 />}
                 {width > 1200 && 
                   <WordList
                     size='big'
-                    cardsData={learnedWords} 
+                    cardsData={userLearnedWords} 
                     title='Learned words'
                   />
                 }
               </div>
         }
-        
 
       </section>
     </PageWrap>

@@ -9,6 +9,8 @@
   padding: 10px;
   transition: opacity 0.2s linear;
   border: none;
+
+  color: #FCFCFD;
 }
 
 .button:hover {
@@ -17,7 +19,6 @@
 }
 
 .text {
-  color: #FCFCFD;
   text-align: center;
   width: 100%;
 }

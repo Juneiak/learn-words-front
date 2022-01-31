@@ -9,6 +9,7 @@ function ButtonPrimary({
   isActive=true,
   children,
 }) {
+
   return (
     <button 
       style={{
@@ -18,7 +19,7 @@ function ButtonPrimary({
       disabled={!isActive}
       type="button"
       onClick={clickHandler}
-      className={`${styles.button} text-button  ${!isActive && 'buttonDisabled'}`}
+      className={`${styles.button} text-button ${!isActive && styles.buttonDisabled}`}
     >
       {children && children}
       <span className={styles.text}>{buttonText}</span>

@@ -7,6 +7,10 @@ function SearchBar({placeholder}) {
 
   const handleTextChange = (evt) => setSerchText(evt.target.value);
 
+  const temporarySessionCleaner = () => {
+    sessionStorage.removeItem('isNewSessionStart')
+  }
+
     return (
       <div className={styles.searchBar}>
         <form className={styles.form}>
@@ -27,7 +31,7 @@ function SearchBar({placeholder}) {
 
           <button
             className={`${styles.button} text-button`}
-            onClick={() => true}
+            onClick={temporarySessionCleaner}
             type='button'
           >
             Search

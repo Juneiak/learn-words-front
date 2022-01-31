@@ -83,7 +83,7 @@ const addNewWord = (newWordData) => {
   //     body: { newWordData }
   //   })
   //   .then((addedWordData) => {
-  //     dispatch({type: ADD_NEW_WORD, dataToAdd: addedWordData})
+  //     dispatch({type: ADD_NEW_WORD, addedWordData})
   //   })
   //   .catch((err) => {
   //     dispatch({type: ADD_NEW_WORD_IS_ERROR})
@@ -91,14 +91,14 @@ const addNewWord = (newWordData) => {
   // }
   return (dispatch) => {
     dispatch({type: ADD_NEW_WORD_IS_LOADING})
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       setTimeout(()=> {
         resolve(newWordData);
         
       }, 1000)
     })
     .then((addedWordData) => {
-      dispatch({type: ADD_NEW_WORD, dataToAdd: addedWordData})
+      dispatch({type: ADD_NEW_WORD, addedWordData})
     })
     .catch((err) => {
       dispatch({type: ADD_NEW_WORD_IS_ERROR})

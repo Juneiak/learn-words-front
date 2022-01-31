@@ -10,6 +10,7 @@ function PrimaryInput({
   inputOnChange = () => false,
   inputValue,
   inputError,
+  inputRequired
 }) {
 
   return (
@@ -27,6 +28,7 @@ function PrimaryInput({
         name={inputName}
         onChange={inputOnChange}
         value={inputValue}
+        required={inputRequired}
       />
       {inputError && <span className={styles.errorText}>{inputError}</span>}
     </div>

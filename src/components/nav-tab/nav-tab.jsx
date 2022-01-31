@@ -19,7 +19,7 @@ function NavTab({ isVertical=false }) {
           {isLogin && <NavTabLink linkTo='/word-sets' icon={DocumentSetIcon} linkName='Word sets' />}
           {isLogin && <NavTabLink linkTo='/' icon={DocumentIcon} linkName='My words' />}
           {isLogin && <NavTabLink linkTo='/study' icon={CardIcon} linkName='Study word' />}
-          {isLogin && <NavTabLink linkTo='/settings' icon={SettingsIcon} linkName='Settings' />}
+          {/* {isLogin && <NavTabLink linkTo='/settings' icon={SettingsIcon} linkName='Settings' />} */}
         </ul>
       </nav>
     )

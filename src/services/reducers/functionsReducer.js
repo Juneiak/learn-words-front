@@ -17,8 +17,13 @@ const initial = {
   selectedWordSetIsError: false,
 
   userWords: [],
+  userLearningWords: [],
+  userLearnedWords: [],
   userWordsIsLoading: false,
   userWordsIsError: false,
+
+  addNewWordIsLoading: false,
+  addNewWordIsError: false,
 }
 
 const functionsReducer = (state=initial, action) => {
@@ -27,6 +32,8 @@ const functionsReducer = (state=initial, action) => {
       return {
         ...state,
         userWords: action.fetchedUserWords,
+        userLearningWords: action.fetchedUserWords.filter((word) => word.process !== 100),
+        userLearnedWords: action.fetchedUserWords.filter((word) => word.process === 100),
         userWordsIsLoading: false,
         userWordsIsError: false
       }
@@ -77,22 +84,22 @@ const functionsReducer = (state=initial, action) => {
     case ADD_NEW_WORD:
       return {
         ...state,
-        selectedWordSet: action.wordSet,
-        selectedWordSetIsLoading: false,
+        userWords: [action.addedWordData, ...state.userWords],
+        addNewWordIsLoading: false,
         selectedWordSetIsError: false
 
       }
     case ADD_NEW_WORD_IS_LOADING:
       return {
         ...state,
-        selectedWordSetIsLoading: true,
-        selectedWordSetIsError: false
+        addNewWordIsLoading: true,
+        addNewWordIsError: false
       }
     case ADD_NEW_WORD_IS_ERROR:
       return {
         ...state,
-        selectedWordSetIsLoading: false,
-        selectedWordSetIsError: true
+        addNewWordIsLoading: false,
+        addNewWordIsError: true
       }
     default: 
       return state
