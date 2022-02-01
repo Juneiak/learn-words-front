@@ -1,9 +1,9 @@
 .button {
   display: grid;
   grid-template-columns: max-content max-content;
-  gap: 15px;
   align-items: center;
   justify-content: center;
+  justify-items: center;
   background-color: #3772FF;
   border-radius: 50px;
   padding: 10px;

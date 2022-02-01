@@ -262,9 +262,12 @@ const userWords = [
   },
 ]
 
+const defaultImageUrl = 'https://images.unsplash.com/photo-1592431913823-7af6b323da9b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80'
+
 
 export {
   wordSets,
   wordSetList,
-  userWords
+  userWords,
+  defaultImageUrl
 }

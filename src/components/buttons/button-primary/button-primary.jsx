@@ -21,7 +21,7 @@ function ButtonPrimary({
       onClick={clickHandler}
       className={`${styles.button} text-button ${!isActive && styles.buttonDisabled}`}
     >
-      {children && children}
+      {children && <div style={{marginRight: '15px'}}>{children}</div>}
       <span className={styles.text}>{buttonText}</span>
     </button>
   )

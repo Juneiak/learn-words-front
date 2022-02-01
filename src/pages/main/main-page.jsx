@@ -56,7 +56,7 @@ function MainPage() {
             : <div className={styles.lists}>
                 {<WordList 
                   size='big'
-                  cardsData={isSecondList ? userLearningWords : userLearnedWords}
+                  cardsData={isSecondList ? userLearnedWords : userLearningWords}
                   title={width > 1200 && 'Words to study'}
                 />}
                 {width > 1200 && 
