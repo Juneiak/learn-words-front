@@ -8,17 +8,34 @@ import WordContainer from '../../components/word-container/word-container';
 import LoadingPrimary from "../../components/loadings/loading-primary/loading-primary";
 import { useDispatch, useSelector } from 'react-redux';
 import AddButton from '../../components/buttons/add-button/add-button';
+import { getRandomNumber } from "../../utils/math-funcs";
 
 function StudyPage() {
-  const { values, handleChange, isValid } = useFormWithValidation();
+  const { values, handleChange, resetForm, isValid } = useFormWithValidation();
   const [ isGameStarted, setIsGameStarted ] = React.useState(false);
+  const [ wordToGuess, setWordToGuess ] = React.useState({});
+  const [ isGuessSuccess, setIsGuessSuccess] = React.useState(false);
 
   const { userLearningWords } = useSelector(store => ({
     userLearningWords: store.funcs.userLearningWords
   }))
 
+  const setRandomWordToGuess = () => {
+    setWordToGuess(userLearningWords[getRandomNumber(0, userLearningWords.length - 1)])
+  }
   const handleStartGameButton = () => {
-    setIsGameStarted(!isGameStarted)
+    setIsGameStarted(!isGameStarted);
+    setRandomWordToGuess();
+  }
+
+  const handleCheckWordButton = () => {
+    if (values.translation === wordToGuess.translation) {
+      setIsGuessSuccess(true);
+      setRandomWordToGuess();
+      resetForm()
+      return
+    }
+    setIsGuessSuccess(false);
   }
   return (
     <PageWrap>
@@ -39,7 +56,7 @@ function StudyPage() {
             }
           </div>
         : <section className={styles.studyModule}>
-            <WordContainer word='plane' wordImageUrl={false} />
+            <WordContainer word={wordToGuess.word} wordImageUrl={wordToGuess.imageUrl} />
             <form className={styles.form}>
               <PrimaryInput
                 inputType = 'text'
@@ -50,8 +67,8 @@ function StudyPage() {
                 inputRequired={true}
               />
               <ButtonPrimary
-                buttonText='commit'
-                clickHandler={() => false}
+                buttonText='Check'
+                clickHandler={handleCheckWordButton}
                 buttonWidth='100%'
                 buttonHeight='56px'
                 isActive={isValid}

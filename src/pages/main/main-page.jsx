@@ -35,7 +35,7 @@ function MainPage() {
   React.useEffect(() => {
     if (!sessionStorage.getItem('isNewSessionStart')) {
       dispatch(getUserWords());
-      sessionStorage.setItem('isNewSessionStart', 'true'); // only for non backend use
+      // sessionStorage.setItem('isNewSessionStart', 'true'); // only for non backend use
     }
   }, [])
 
