@@ -35,7 +35,6 @@ const useFormWithValidation = () => {
       setIsValid(newIsValid);
     }
   )
-  
   return {values, errors, isValid, handleChange, resetForm}
 }
 

@@ -177,22 +177,22 @@ const wordSetList = [
   {
     setId: 1,
     title: 'basic',
-    setImageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
+    setImageUrl: 'https://images.unsplash.com/photo-1613391781181-2ff9a71e30a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2148&q=80',
   },
   {
     setId: 2,
     title: 'animal',
-    setImageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
+    setImageUrl: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80',
   },
   {
     setId: 3,
     title: 'food',
-    setImageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
+    setImageUrl: 'https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
   },
   {
     setId: 4,
     title: 'travel',
-    setImageUrl: 'https://images.unsplash.com/photo-1642470951285-77fc98cd304e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
+    setImageUrl: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
   },
 ]
 

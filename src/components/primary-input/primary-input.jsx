@@ -8,7 +8,7 @@ function PrimaryInput({
   inputMinLenght,
   inputName,
   inputOnChange = () => false,
-  inputValue,
+  inputValue = '',
   inputError,
   inputRequired
 }) {

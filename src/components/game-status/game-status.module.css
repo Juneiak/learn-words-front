@@ -1,0 +1,13 @@
+.gameStatus {
+  display: grid;
+  gap: 15px;
+  justify-items: center;
+}
+
+.incorrectMessage {
+  color: var(--color-red)
+}
+
+.correctMessage {
+  color: var(--color-green)
+}

@@ -5,16 +5,16 @@ import PrimaryInput from "../../components/primary-input/primary-input";
 import ButtonPrimary from "../../components/buttons/button-primary/button-primary";
 import { useFormWithValidation } from '../../utils/hooks/useForm';
 import WordContainer from '../../components/word-container/word-container';
-import LoadingPrimary from "../../components/loadings/loading-primary/loading-primary";
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import AddButton from '../../components/buttons/add-button/add-button';
 import { getRandomNumber } from "../../utils/math-funcs";
+import GameStatus from '../../components/game-status/game-status';
 
 function StudyPage() {
   const { values, handleChange, resetForm, isValid } = useFormWithValidation();
   const [ isGameStarted, setIsGameStarted ] = React.useState(false);
   const [ wordToGuess, setWordToGuess ] = React.useState({});
-  const [ isGuessSuccess, setIsGuessSuccess] = React.useState(false);
+  const [ gameStatus, setGameStatus] = React.useState('listen'); // three state: listen, correct, incorrect
 
   const { userLearningWords } = useSelector(store => ({
     userLearningWords: store.funcs.userLearningWords
@@ -23,20 +23,32 @@ function StudyPage() {
   const setRandomWordToGuess = () => {
     setWordToGuess(userLearningWords[getRandomNumber(0, userLearningWords.length - 1)])
   }
-  const handleStartGameButton = () => {
-    setIsGameStarted(!isGameStarted);
-    setRandomWordToGuess();
+
+  const handleType = (evt) => {
+    if (gameStatus !== 'listen') setGameStatus('listen')
+    handleChange(evt);
   }
 
-  const handleCheckWordButton = () => {
+  const handleStartGame = () => {
+    setIsGameStarted(!isGameStarted);
+    setRandomWordToGuess();
+    setGameStatus('listen');
+  }
+
+  const handleCheckWord = () => {
     if (values.translation === wordToGuess.translation) {
-      setIsGuessSuccess(true);
-      setRandomWordToGuess();
-      resetForm()
+      setGameStatus('correct')
       return
     }
-    setIsGuessSuccess(false);
+    setGameStatus('incorrect');
   }
+  const handleNextWord = () => {
+    setGameStatus('listen');
+    setRandomWordToGuess();
+    resetForm();
+  }
+
+
   return (
     <PageWrap>
       {!isGameStarted 
@@ -48,7 +60,7 @@ function StudyPage() {
               userLearningWords.length > 0 
                 ? <ButtonPrimary
                     buttonText='start the game'
-                    clickHandler={handleStartGameButton}
+                    clickHandler={handleStartGame}
                     buttonWidth='100%'
                     buttonHeight='56px'
                   />
@@ -62,16 +74,15 @@ function StudyPage() {
                 inputType = 'text'
                 inputPlaceholder='write translation'
                 inputName='translation'
-                inputOnChange={handleChange}
+                inputOnChange={handleType}
                 inputValue={values.translation}
                 inputRequired={true}
               />
-              <ButtonPrimary
-                buttonText='Check'
-                clickHandler={handleCheckWordButton}
-                buttonWidth='100%'
-                buttonHeight='56px'
-                isActive={isValid}
+              <GameStatus
+                checkButtonActivity={isValid} 
+                gameStatus={gameStatus}
+                checkHandler={handleCheckWord}
+                nextHandler={handleNextWord}
               />
             </form>
           </section>
