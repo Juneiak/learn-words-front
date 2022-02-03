@@ -38,7 +38,7 @@ function App() {
       <Header />
 
       <Switch>
-        <Route exact path='/'>
+        <Route exact path='/main'>
           <MainPage />
         </Route>
 
@@ -50,7 +50,7 @@ function App() {
           <WordSetsPage />
         </Route>
 
-        <Route exact path='/study'>
+        <Route exact path='/'>
           <StudyPage />
         </Route>
 

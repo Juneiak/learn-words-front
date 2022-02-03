@@ -9,19 +9,21 @@ import { useSelector } from 'react-redux';
 import AddButton from '../../components/buttons/add-button/add-button';
 import { getRandomNumber } from "../../utils/math-funcs";
 import GameStatus from '../../components/game-status/game-status';
+import FinishMessage from "../../components/finish-message/finish-message";
 
 function StudyPage() {
   const { values, handleChange, resetForm, isValid } = useFormWithValidation();
   const [ isGameStarted, setIsGameStarted ] = React.useState(false);
   const [ wordToGuess, setWordToGuess ] = React.useState({});
   const [ gameStatus, setGameStatus] = React.useState('listen'); // three state: listen, correct, incorrect
+  const [ wordsToLearnList, setWordsToLearnList ] = React.useState([])
 
   const { userLearningWords } = useSelector(store => ({
     userLearningWords: store.funcs.userLearningWords
   }))
 
   const setRandomWordToGuess = () => {
-    setWordToGuess(userLearningWords[getRandomNumber(0, userLearningWords.length - 1)])
+    setWordToGuess(wordsToLearnList[getRandomNumber(0, wordsToLearnList.length - 1)])
   }
 
   const handleType = (evt) => {
@@ -30,7 +32,7 @@ function StudyPage() {
   }
 
   const handleStartGame = () => {
-    setIsGameStarted(!isGameStarted);
+    setIsGameStarted(true);
     setRandomWordToGuess();
     setGameStatus('listen');
   }
@@ -38,6 +40,7 @@ function StudyPage() {
   const handleCheckWord = () => {
     if (values.translation === wordToGuess.translation) {
       setGameStatus('correct')
+      setWordsToLearnList(wordsToLearnList.filter(word => word.word !== wordToGuess.word))
       return
     }
     setGameStatus('incorrect');
@@ -47,6 +50,16 @@ function StudyPage() {
     setRandomWordToGuess();
     resetForm();
   }
+  
+  const handleRepeat = () => {
+    setWordsToLearnList(userLearningWords);
+    setGameStatus('listen');
+    resetForm();
+  }
+
+  React.useEffect(() => {
+    setWordsToLearnList(userLearningWords);
+  }, [userLearningWords])
 
 
   return (
@@ -54,7 +67,7 @@ function StudyPage() {
       {!isGameStarted 
         ? <div className={styles.gameTag}>
             <span className={`${styles.wordsLeft} text-h3`}>
-              {`words to learn: ${userLearningWords.length || 0}`}
+              {`words to learn: ${wordsToLearnList.length || 0}`}
             </span>
             {
               userLearningWords.length > 0 
@@ -68,23 +81,29 @@ function StudyPage() {
             }
           </div>
         : <section className={styles.studyModule}>
-            <WordContainer word={wordToGuess.word} wordImageUrl={wordToGuess.imageUrl} />
-            <form className={styles.form}>
-              <PrimaryInput
-                inputType = 'text'
-                inputPlaceholder='write translation'
-                inputName='translation'
-                inputOnChange={handleType}
-                inputValue={values.translation}
-                inputRequired={true}
-              />
-              <GameStatus
-                checkButtonActivity={isValid} 
-                gameStatus={gameStatus}
-                checkHandler={handleCheckWord}
-                nextHandler={handleNextWord}
-              />
-            </form>
+          {
+            wordsToLearnList.length === 0
+            ? <FinishMessage repeatHandler={handleRepeat}/>
+            : <>
+                <WordContainer word={wordToGuess.word} wordImageUrl={wordToGuess.imageUrl} />
+                <form className={styles.form}>
+                  <PrimaryInput
+                    inputType = 'text'
+                    inputPlaceholder='write translation'
+                    inputName='translation'
+                    inputOnChange={handleType}
+                    inputValue={values.translation}
+                    inputRequired={true}
+                  />
+                  <GameStatus
+                    checkButtonActivity={isValid} 
+                    gameStatus={gameStatus}
+                    checkHandler={handleCheckWord}
+                    nextHandler={handleNextWord}
+                  />
+                </form>
+              </>
+          }
           </section>
       }
       
