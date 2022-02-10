@@ -44,12 +44,18 @@
   justify-content: center;
 }
 
+.emptyMessage {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: var(--color-basic-2);
+}
+
 .list {
   margin: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
   padding: 0 10px 0 0;

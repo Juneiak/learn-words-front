@@ -17,10 +17,10 @@ function StudyPage() {
   const [ wordToGuess, setWordToGuess ] = React.useState({});
   const [ gameStatus, setGameStatus] = React.useState('listen'); // three state: listen, correct, incorrect
   const [ wordsToLearnList, setWordsToLearnList ] = React.useState([])
+  const [ ]
+  const userWords = useSelector(store => store.funcs.userWords)
 
-  const { userLearningWords } = useSelector(store => ({
-    userLearningWords: store.funcs.userLearningWords
-  }))
+  
 
   const setRandomWordToGuess = () => {
     setWordToGuess(wordsToLearnList[getRandomNumber(0, wordsToLearnList.length - 1)])
@@ -59,7 +59,7 @@ function StudyPage() {
 
   React.useEffect(() => {
     setWordsToLearnList(userLearningWords);
-  }, [userLearningWords])
+  }, [userWords])
 
 
   return (

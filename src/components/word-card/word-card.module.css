@@ -3,8 +3,8 @@
   grid-template-columns: 60px 1fr min-content;
   grid-template-rows: 1fr 10px;
   grid-template-areas: 
-  'image translation delete'
-  'image progressBar delete';
+  'image translation action'
+  'image progressBar action';
   width: 100%;
   padding: 10px;
   border-radius: 12px;
@@ -43,8 +43,17 @@
 }
 
 
-.icon {
-  grid-area: delete;
+.actionButton {
+  grid-area: action;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.3s linear opacity;
+}
+
+.actionButton:hover {
+  opacity: 0.7;
 }
 
 .progressBar {
@@ -55,7 +64,7 @@
 @media (max-width: 620px) {
   .card {
     grid-template-areas: 
-    'image translation delete'
+    'image translation action'
     'progressBar progressBar progressBar';
     width: 270px;
     height: 100px;

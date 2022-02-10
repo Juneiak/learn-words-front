@@ -8,7 +8,9 @@ import {
   ADD_NEW_WORD_IS_ERROR,
   SET_USER_WORDS,
   SET_USER_WORDS_IS_ERROR,
-  SET_USER_WORDS_IS_LOADING
+  SET_USER_WORDS_IS_LOADING,
+  RESET_WORD_PROGRESS,
+  DELETE_WORD
 } from "../actions/constants";
 
 const initial = {  
@@ -17,8 +19,6 @@ const initial = {
   selectedWordSetIsError: false,
 
   userWords: [],
-  userLearningWords: [],
-  userLearnedWords: [],
   userWordsIsLoading: false,
   userWordsIsError: false,
 
@@ -32,8 +32,6 @@ const functionsReducer = (state=initial, action) => {
       return {
         ...state,
         userWords: action.fetchedUserWords,
-        userLearningWords: action.fetchedUserWords.filter((word) => word.progress !== 100),
-        userLearnedWords: action.fetchedUserWords.filter((word) => word.progress === 100),
         userWordsIsLoading: false,
         userWordsIsError: false
       }
@@ -84,7 +82,7 @@ const functionsReducer = (state=initial, action) => {
     case ADD_NEW_WORD:
       return {
         ...state,
-        userLearningWords: [action.addedWordData, ...state.userLearningWords],
+        userWords: [action.addedWordData, ...state.userWords],
         addNewWordIsLoading: false,
         selectedWordSetIsError: false
 
@@ -100,6 +98,26 @@ const functionsReducer = (state=initial, action) => {
         ...state,
         addNewWordIsLoading: false,
         addNewWordIsError: true
+      }
+
+
+    case RESET_WORD_PROGRESS:
+    return {
+      ...state,
+      userWords: state.userWords.map(wordCard => { 
+        if (wordCard.word === action.word) {
+          return {
+            ...wordCard,
+            progress: 0,
+          }
+        }
+        return wordCard
+      }),
+    }
+    case DELETE_WORD:
+      return {
+        ...state,
+        userWords: state.userWords.filter(wordCard => wordCard.word === action.word ? false : true)
       }
     default: 
       return state

@@ -14,11 +14,15 @@ function WordList({ title, cardsData, size='big' }) {
         className={size === 'big' ? styles.listBorderBig : styles.listBorderSmall}
       >
         <ul className={styles.list}>
-          { cardsData.map((cardData, index) => (
+          {
+            cardsData.length === 0
+            ? <div className={styles.emptyMessage}><span className="text-body">Empty</span></div>
+            : cardsData.map((cardData, index) => (
             <li key={index} className={styles.element}>
               <WordCard  data={cardData} />
             </li>
-          ))}
+          ))
+          }
         </ul>
       </div>
       

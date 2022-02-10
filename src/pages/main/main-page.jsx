@@ -15,16 +15,16 @@ function MainPage() {
   const [ isSecondList, setIsSecondList] = React.useState(false);
   const { width } = useWindowDimensions();
   const {
-    userLearningWords,
-    userLearnedWords,
+    userWords,
     userWordsIsLoading,
     userWordsIsError,
   } = useSelector(store => ({
-    userLearningWords: store.funcs.userLearningWords,
-    userLearnedWords: store.funcs.userLearnedWords,
+    userWords: store.funcs.userWords,
     userWordsIsLoading: store.funcs.userWordsIsLoading,
     userWordsIsError: store.funcs.userWordsIsError,
   }))
+  const userLearningWords = userWords.filter((word) => word.progress !== 100)
+  const userLearnedWords = userWords.filter((word) => word.progress === 100)
 
   const toggleList = () => {
     setIsSecondList(!isSecondList);
