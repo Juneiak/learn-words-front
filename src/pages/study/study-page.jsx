@@ -17,9 +17,8 @@ function StudyPage() {
   const [ wordToGuess, setWordToGuess ] = React.useState({});
   const [ gameStatus, setGameStatus] = React.useState('listen'); // three state: listen, correct, incorrect
   const [ wordsToLearnList, setWordsToLearnList ] = React.useState([])
-  const [ ]
   const userWords = useSelector(store => store.funcs.userWords)
-
+  const learningWordList = userWords.filter((word) => word.progress !== 100)
   
 
   const setRandomWordToGuess = () => {
@@ -52,13 +51,13 @@ function StudyPage() {
   }
   
   const handleRepeat = () => {
-    setWordsToLearnList(userLearningWords);
+    setWordsToLearnList(learningWordList);
     setGameStatus('listen');
     resetForm();
   }
 
   React.useEffect(() => {
-    setWordsToLearnList(userLearningWords);
+    setWordsToLearnList(learningWordList);
   }, [userWords])
 
 
@@ -70,7 +69,7 @@ function StudyPage() {
               {`words to learn: ${wordsToLearnList.length || 0}`}
             </span>
             {
-              userLearningWords.length > 0 
+              learningWordList.length > 0 
                 ? <ButtonPrimary
                     buttonText='start the game'
                     clickHandler={handleStartGame}
