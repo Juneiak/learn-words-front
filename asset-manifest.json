@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/learn-words-front/static/css/main.0a67b9b3.css",
-    "main.js": "/learn-words-front/static/js/main.b6e1189f.js",
+    "main.css": "/learn-words-front/static/css/main.8f0c1d86.css",
+    "main.js": "/learn-words-front/static/js/main.ea79ee86.js",
     "static/js/787.9caa9f6c.chunk.js": "/learn-words-front/static/js/787.9caa9f6c.chunk.js",
     "static/media/article-image.png": "/learn-words-front/static/media/article-image.a49d963967406c13bfcb.png",
     "static/media/dark-document-set.svg": "/learn-words-front/static/media/dark-document-set.41c073a8d5705357d5b5b475d2f1e596.svg",
@@ -30,12 +30,12 @@
     "static/media/dark-search.svg": "/learn-words-front/static/media/dark-search.66c9ee767f394785e9330e4e08ca1c85.svg",
     "static/media/light-search.svg": "/learn-words-front/static/media/light-search.64b2e9e2c0c7a8ab0f86cb79f4b819da.svg",
     "static/media/light-close.svg": "/learn-words-front/static/media/light-close.6d17266d8f48ea405e22609f2852c29d.svg",
-    "main.0a67b9b3.css.map": "/learn-words-front/static/css/main.0a67b9b3.css.map",
-    "main.b6e1189f.js.map": "/learn-words-front/static/js/main.b6e1189f.js.map",
+    "main.8f0c1d86.css.map": "/learn-words-front/static/css/main.8f0c1d86.css.map",
+    "main.ea79ee86.js.map": "/learn-words-front/static/js/main.ea79ee86.js.map",
     "787.9caa9f6c.chunk.js.map": "/learn-words-front/static/js/787.9caa9f6c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0a67b9b3.css",
-    "static/js/main.b6e1189f.js"
+    "static/css/main.8f0c1d86.css",
+    "static/js/main.ea79ee86.js"
   ]
 }
