@@ -1,4 +1,4 @@
-.studyModule {
+.trainingModule {
   display: grid;
   gap: 40px;
   grid-template-columns: 1fr;
@@ -14,11 +14,7 @@
   grid-template-rows: repeat(auto-fill, max-content);
 }
 
-.gameTag {
+.trainingTag {
   display: grid;
   gap: 20px;
-}
-
-.wordsLeft {
-  
 }

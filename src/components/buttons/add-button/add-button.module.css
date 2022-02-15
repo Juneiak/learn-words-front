@@ -12,6 +12,7 @@
   border: none;
   box-sizing: border-box;
   width: max-content;
+  height: 56px;
 }
 
 .button:hover {

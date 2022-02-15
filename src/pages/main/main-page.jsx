@@ -6,11 +6,12 @@ import WordList from '../../components/word-list/word-list';
 import PageWrap from '../../components/page-wrap/page-wrap';
 import useWindowDimensions from '../../utils/hooks/useWindowDimensions';
 import ListsControlpanel from '../../components/lists-control-panel/lists-control-panel';
-import { useSelector } from 'react-redux';
-import ErrorMessage from '../../components/error-message/error-message';
-import LoadingPrimary from '../../components/loadings/loading-primary/loading-primary';
+import { useSelector, useDispatch } from 'react-redux';
+import LoadingErrorWrapper from '../../components/hocs/loading-error-wrapper/loading-error-wrapper';
+import { getUserWords } from '../../services/actions/functions';
 
 function MainPage() {
+  const dispatch = useDispatch();
 
   const [ isSecondList, setIsSecondList] = React.useState(false);
   const { width } = useWindowDimensions();
@@ -30,6 +31,13 @@ function MainPage() {
     setIsSecondList(!isSecondList);
   }
 
+  React.useEffect(() => {
+    if (!sessionStorage.getItem('isNewSessionStart')) {
+      dispatch(getUserWords());
+      // sessionStorage.setItem('isNewSessionStart', 'true'); // only for non-backend use
+    }
+  }, [])
+
   return (
     <PageWrap>
       <section className={styles.functions}>
@@ -38,27 +46,26 @@ function MainPage() {
       </section>
 
       <section className={styles.wordLists}>
-        {width < 1200 && <ListsControlpanel toggleHandler={toggleList} isRightSideActive={isSecondList} />}
-        {
-          userWordsIsError
-          ? <ErrorMessage />
-          : userWordsIsLoading
-            ? <LoadingPrimary />
-            : <div className={styles.lists}>
-                {<WordList 
-                  size='big'
-                  cardsData={isSecondList ? userLearnedWords : userLearningWords}
-                  title={width > 1200 && 'Words to study'}
-                />}
-                {width > 1200 && 
-                  <WordList
-                    size='big'
-                    cardsData={userLearnedWords} 
-                    title='Learned words'
-                  />
-                }
-              </div>
-        }
+        {width < 1200 && <div style={{marginBottom: '15px'}}>
+            <ListsControlpanel toggleHandler={toggleList} isRightSideActive={isSecondList} />
+        </div>}
+
+        <LoadingErrorWrapper isError={userWordsIsError} isLoading={userWordsIsLoading}>
+          <div className={styles.lists}>
+            <WordList 
+              size='big'
+              cardsData={isSecondList ? userLearnedWords : userLearningWords}
+              title={width > 1200 && 'Words to study'}
+            />
+            {width > 1200 && 
+              <WordList
+                size='big'
+                cardsData={userLearnedWords} 
+                title='Learned words'
+              />
+            }
+          </div>
+        </LoadingErrorWrapper>
 
       </section>
     </PageWrap>

@@ -35,6 +35,7 @@ const getUserWords = () => {
     })
     .then((fetchedUserWords) => {
       dispatch({type: SET_USER_WORDS, fetchedUserWords})
+      return fetchedUserWords
     })
     .catch((err) => {
       dispatch({type: SET_USER_WORDS_IS_ERROR})

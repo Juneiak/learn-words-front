@@ -4,13 +4,13 @@ import {
   TOGGLE_SIDE_MENU_OPEN,
 } from "../actions/constants";
 
-const initial = {
+const initialState = {
   isDarkThemeOn: false,
   addPopUpIsOpen: false,
   isSideMenuOpen: false,
 }
 
-const appReducer = (state=initial, action) => {
+const appReducer = (state=initialState, action) => {
   switch (action.type) {
     case TOGGLE_SIDE_MENU_OPEN: 
       return {

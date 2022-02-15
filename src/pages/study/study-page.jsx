@@ -5,107 +5,121 @@ import PrimaryInput from "../../components/primary-input/primary-input";
 import ButtonPrimary from "../../components/buttons/button-primary/button-primary";
 import { useFormWithValidation } from '../../utils/hooks/useForm';
 import WordContainer from '../../components/word-container/word-container';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import AddButton from '../../components/buttons/add-button/add-button';
-import { getRandomNumber } from "../../utils/math-funcs";
-import GameStatus from '../../components/game-status/game-status';
-import FinishMessage from "../../components/finish-message/finish-message";
+import LoadingErrorWrapper from "../../components/hocs/loading-error-wrapper/loading-error-wrapper";
+import { TrainingStatus, TrainingFinishMessage, TrainingWordsLeft } from '../../components/training';
+
+import {
+  setWordsToLearn,
+  changeTrainingStatus,
+  setRondomWordToGuess,
+  toggleTraining,
+  removeGuessedWord
+} from '../../services/actions/training';
 
 function StudyPage() {
-  const { values, handleChange, resetForm, isValid } = useFormWithValidation();
-  const [ isGameStarted, setIsGameStarted ] = React.useState(false);
-  const [ wordToGuess, setWordToGuess ] = React.useState({});
-  const [ gameStatus, setGameStatus] = React.useState('listen'); // three state: listen, correct, incorrect
-  const [ wordsToLearnList, setWordsToLearnList ] = React.useState([])
-  const userWords = useSelector(store => store.funcs.userWords)
-  const learningWordList = userWords.filter((word) => word.progress !== 100)
   
+  const { values, handleChange, resetForm, isValid } = useFormWithValidation();
+  const dispacth = useDispatch()
 
-  const setRandomWordToGuess = () => {
-    setWordToGuess(wordsToLearnList[getRandomNumber(0, wordsToLearnList.length - 1)])
-  }
+  const {
+    trainingOn,
+    wordToGuess,
+    trainingStatus,
+    wordsToTrain,
+    wordsToTrainIsLoading,
+    wordsToTrainIsError,
+  } = useSelector(store => ({
+    trainingOn: store.training.trainingOn,
+    wordToGuess: store.training.wordToGuess,
+    trainingStatus: store.training.trainingStatus,
+    wordsToTrain: store.training.wordsToTrain,
+    wordsToTrainIsLoading: store.training.wordsToTrainIsLoading,
+    wordsToTrainIsError: store.training.wordsToTrainIsError,
 
+  }))
   const handleType = (evt) => {
-    if (gameStatus !== 'listen') setGameStatus('listen')
+    if (trainingStatus !== 'listen') dispacth(changeTrainingStatus('listen'))
     handleChange(evt);
   }
 
-  const handleStartGame = () => {
-    setIsGameStarted(true);
-    setRandomWordToGuess();
-    setGameStatus('listen');
+  const handleStartTraining = () => {
+    dispacth(toggleTraining())
+    dispacth(setRondomWordToGuess())
+    dispacth(changeTrainingStatus('listen'))
   }
 
   const handleCheckWord = () => {
     if (values.translation === wordToGuess.translation) {
-      setGameStatus('correct')
-      setWordsToLearnList(wordsToLearnList.filter(word => word.word !== wordToGuess.word))
+      dispacth(changeTrainingStatus('correct'))
+      dispacth(removeGuessedWord(wordToGuess.word))
       return
     }
-    setGameStatus('incorrect');
+    dispacth(changeTrainingStatus('incorrect'))
   }
   const handleNextWord = () => {
-    setGameStatus('listen');
-    setRandomWordToGuess();
+    if (wordsToTrain.length > 0) {
+      dispacth(setRondomWordToGuess())
+    }
+    dispacth(changeTrainingStatus('listen'))
     resetForm();
   }
   
   const handleRepeat = () => {
-    setWordsToLearnList(learningWordList);
-    setGameStatus('listen');
+    dispacth(setWordsToLearn())
+    dispacth(changeTrainingStatus('listen'))
     resetForm();
   }
 
   React.useEffect(() => {
-    setWordsToLearnList(learningWordList);
-  }, [userWords])
-
+    dispacth(setWordsToLearn())
+  }, [])
 
   return (
     <PageWrap>
-      {!isGameStarted 
-        ? <div className={styles.gameTag}>
-            <span className={`${styles.wordsLeft} text-h3`}>
-              {`words to learn: ${wordsToLearnList.length || 0}`}
-            </span>
+      <LoadingErrorWrapper isError={wordsToTrainIsError} isLoading={wordsToTrainIsLoading} >
+        {!trainingOn 
+          ? <div className={styles.trainingTag}>
+              <TrainingWordsLeft wordNumber={wordsToTrain.length} />
+              {
+                wordsToTrain.length > 0 
+                  ? <ButtonPrimary
+                      buttonText='start training'
+                      clickHandler={handleStartTraining}
+                      buttonWidth='100%'
+                      buttonHeight='56px'
+                    />
+                  : <AddButton />
+              }
+            </div>
+          : <section className={styles.trainingModule}>
             {
-              learningWordList.length > 0 
-                ? <ButtonPrimary
-                    buttonText='start the game'
-                    clickHandler={handleStartGame}
-                    buttonWidth='100%'
-                    buttonHeight='56px'
-                  />
-                : <AddButton />
+              wordsToTrain.length === 0
+              ? <TrainingFinishMessage repeatHandler={handleRepeat}/>
+              : <>
+                  <WordContainer word={wordToGuess.word} wordImageUrl={wordToGuess.imageUrl} />
+                  <form className={styles.form}>
+                    <PrimaryInput
+                      inputType = 'text'
+                      inputPlaceholder='write translation'
+                      inputName='translation'
+                      inputOnChange={handleType}
+                      inputValue={values.translation}
+                      inputRequired={true}
+                    />
+                    <TrainingStatus
+                      checkButtonActivity={isValid} 
+                      status={trainingStatus}
+                      checkHandler={handleCheckWord}
+                      nextHandler={handleNextWord}
+                    />
+                  </form>
+                </>
             }
-          </div>
-        : <section className={styles.studyModule}>
-          {
-            wordsToLearnList.length === 0
-            ? <FinishMessage repeatHandler={handleRepeat}/>
-            : <>
-                <WordContainer word={wordToGuess.word} wordImageUrl={wordToGuess.imageUrl} />
-                <form className={styles.form}>
-                  <PrimaryInput
-                    inputType = 'text'
-                    inputPlaceholder='write translation'
-                    inputName='translation'
-                    inputOnChange={handleType}
-                    inputValue={values.translation}
-                    inputRequired={true}
-                  />
-                  <GameStatus
-                    checkButtonActivity={isValid} 
-                    gameStatus={gameStatus}
-                    checkHandler={handleCheckWord}
-                    nextHandler={handleNextWord}
-                  />
-                </form>
-              </>
-          }
-          </section>
-      }
-      
+            </section>
+        }
+      </LoadingErrorWrapper>
     </PageWrap>
         
   )

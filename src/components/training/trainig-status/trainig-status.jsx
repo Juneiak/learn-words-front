@@ -1,18 +1,18 @@
 import React from "react";
-import styles from './game-status.module.css';
-import ButtonPrimary from "../buttons/button-primary/button-primary";
+import styles from './trainig-status.module.css';
+import ButtonPrimary from "../../buttons/button-primary/button-primary";
 
-function GameStatus({ gameStatus, checkButtonActivity, checkHandler, nextHandler }) {
+function TrainingStatus({ status, checkButtonActivity, checkHandler, nextHandler }) {
     return (
-      <div className={styles.gameStatus}>
+      <div className={styles.trainingStatus}>
         {
-          gameStatus === 'listen' 
+          status === 'listen' 
           ? <span className='text-h3'>Are you sure?</span>
-          : gameStatus === 'correct'
+          : status === 'correct'
             ? <span className={`text-h3 ${styles.correctMessage}`}>Correct! next?</span>
             : <span className={`text-h3 ${styles.incorrectMessage}`}>Wrong! try again</span>
         }
-        { gameStatus === 'correct'
+        { status === 'correct'
           ? <ButtonPrimary
               buttonText='Next word'
               clickHandler={nextHandler}
@@ -32,4 +32,4 @@ function GameStatus({ gameStatus, checkButtonActivity, checkHandler, nextHandler
     )
 }
 
-export default GameStatus;
+export default TrainingStatus;

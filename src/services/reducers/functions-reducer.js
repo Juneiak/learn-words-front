@@ -13,7 +13,7 @@ import {
   DELETE_WORD
 } from "../actions/constants";
 
-const initial = {  
+const initialState = {  
   selectedWordSet: {},
   selectedWordSetIsLoading: false,
   selectedWordSetIsError: false,
@@ -26,7 +26,7 @@ const initial = {
   addNewWordIsError: false,
 }
 
-const functionsReducer = (state=initial, action) => {
+const functionsReducer = (state=initialState, action) => {
   switch (action.type) {
     case SET_USER_WORDS:
       return {

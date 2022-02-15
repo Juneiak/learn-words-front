@@ -4,6 +4,7 @@
   justify-content: center;
   padding: 80px 0 30px;
   background-color: var(--color-basic-2);
+  margin-top: auto;
 }
 
 .content {
