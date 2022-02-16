@@ -22,6 +22,31 @@ function AboutPage() {
           <ArticleBlock text={articleText2} title={atricleTitle2} />
         </li>
       </ul>
+      <ul className={styles.frameList}>
+        <li className={styles.frame}>
+          <iframe
+            id="ytplayer"
+            type="text/html"
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/eVajQPuRmk8"
+            frameBorder="0"
+            allow="fullscreen"
+          />
+        </li>
+        <li className={styles.frame}>
+          <iframe
+            id="ytplayer"
+            type="text/html"
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/cVf38y07cfk"
+            frameBorder="0"
+            allow="fullscreen"
+          />
+        </li>
+        
+        </ul>
     </PageWrap>
         
   )

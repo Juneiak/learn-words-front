@@ -9,23 +9,14 @@ import {
 
   SET_USER_WORDS,
   SET_USER_WORDS_IS_ERROR,
-  SET_USER_WORDS_IS_LOADING
+  SET_USER_WORDS_IS_LOADING,
+
+  WORD_SET_POPUP_TOGGLE,
+
 } from './constants';
 import { wordSets, userWords } from '../../data-for-test/data';
 
 const getUserWords = () => {
-  // return (dispatch) => {
-  //   dispatch({type: SET_USER_WORDS_IS_LOADING});
-  //   fetch('bla-bla-bla.com/', {
-  //     method: 'GET',
-  //   })
-  //   .then((fetchedUserWords) => {
-  //     dispatch({type: SET_USER_WORDS, fetchedUserWords})
-  //   })
-  //   .catch((err) => {
-  //     dispatch({type: SET_USER_WORDS_IS_ERROR})
-  //   })
-  // }
   return (dispatch) => {
     dispatch({type: SET_USER_WORDS_IS_LOADING});
     return new Promise((resolve, reject) => {
@@ -44,23 +35,9 @@ const getUserWords = () => {
 }
 
 const getWordSet = (wordSetId) => {
-  // return (dispatch) => {
-  //   dispatch(SELECT_WORD_SET_IS_LOADING);
-  //   fetch('bla-bla-bla.com/', {
-  //     method: 'GET',
-  //     body: {
-  //       id: wordSetId
-  //     }
-  //   })
-  //   .then((wordSet) => {
-  //     dispatch({type: SELECT_WORD_SET, wordSet})
-  //   })
-  //   .catch((err) => {
-  //     dispatch({type: SELECT_WORD_SET_IS_ERROR})
-  //   })
-  // }
   return (dispatch) => {
-    dispatch({type: SELECT_WORD_SET_IS_LOADING, wordSetId});
+    dispatch({type: WORD_SET_POPUP_TOGGLE})
+    dispatch({type: SELECT_WORD_SET_IS_LOADING});
     new Promise((resolve, reject) => {
       setTimeout(()=> {
         const findedWordSet = wordSets.find(set => set.setId === wordSetId);
@@ -77,19 +54,6 @@ const getWordSet = (wordSetId) => {
 }
 
 const addNewWord = (newWordData) => {
-  // return (dispatch) => {
-  //   dispatch({type: ADD_NEW_WORD_IS_LOADING})
-  //   fetch('bla-bla-bla.com/', {
-  //     method: 'GET',
-  //     body: { newWordData }
-  //   })
-  //   .then((addedWordData) => {
-  //     dispatch({type: ADD_NEW_WORD, addedWordData})
-  //   })
-  //   .catch((err) => {
-  //     dispatch({type: ADD_NEW_WORD_IS_ERROR})
-  //   })
-  // }
   return (dispatch) => {
     dispatch({type: ADD_NEW_WORD_IS_LOADING})
     return new Promise((resolve, reject) => {

@@ -38,7 +38,6 @@ const functionsReducer = (state=initialState, action) => {
     case SET_USER_WORDS_IS_LOADING:
       return {
         ...state,
-        selectedWordSet: { setId: action.wordSetId },
         userWordsIsLoading: true,
         userWordsIsError: false
       }
@@ -48,7 +47,6 @@ const functionsReducer = (state=initialState, action) => {
         userWordsIsLoading: false,
         userWordsIsError: true
       }
-
 
     case SELECT_WORD_SET:
       return {
@@ -60,7 +58,6 @@ const functionsReducer = (state=initialState, action) => {
     case SELECT_WORD_SET_IS_LOADING:
       return {
         ...state,
-        selectedWordSet: { setId: action.wordSetId },
         selectedWordSetIsLoading: true,
         selectedWordSetIsError: false
       }

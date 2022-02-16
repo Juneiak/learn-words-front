@@ -2,7 +2,7 @@ import React from "react";
 import styles from './word-card.module.css';
 import { DeleteIcon, ArrowIcon, AddIcon, ReloadIcon } from "../icons";
 import ProgressBar from "../progress-bar/progress-bar";
-import { useDispatch } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { addNewWord } from '../../services/actions/functions';
 import { RESET_WORD_PROGRESS, DELETE_WORD} from '../../services/actions/constants';
 

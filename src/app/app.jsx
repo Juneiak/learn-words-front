@@ -8,23 +8,31 @@ import Footer from '../components/footer/footer';
 import { MainPage, AboutPage, WordSetsPage, StudyPage } from '../pages/index';
 import { Switch, Route } from 'react-router-dom';
 import { AddPopUp, WordSetPopUp } from '../components/pop-ups';
-import { useSelector} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import SideMenu from '../components/pop-ups/side-menu/side-menu';
+import {getUserWords} from '../services/actions/functions';
 
 function App() {
-
+  const dispatch = useDispatch();
   const {
     isDarkThemeOn,
     addPopUpIsOpen,
-    selectedWordSet,
     isSideMenuOpen,
+    isWordSetPopUpOpen
   } = useSelector(store => ({
     isDarkThemeOn: store.app.isDarkThemeOn,
     addPopUpIsOpen: store.app.addPopUpIsOpen,
-    selectedWordSet: store.funcs.selectedWordSet,
-    isSideMenuOpen: store.app.isSideMenuOpen
+    isSideMenuOpen: store.app.isSideMenuOpen,
+    isWordSetPopUpOpen: store.app.isWordSetPopUpOpen
   }))
-  
+
+  React.useEffect(() => {
+    if (!sessionStorage.getItem('isNewSessionStart')) {
+      dispatch(getUserWords());
+      // sessionStorage.setItem('isNewSessionStart', 'true'); // only for non-backend use
+    }
+  }, [])
+
   return (
     <div className="app colors" data-theme-mode={isDarkThemeOn ? 'dark' : 'light'}>
       <Header />
@@ -52,7 +60,7 @@ function App() {
 
       <Switch>
         {addPopUpIsOpen && <AddPopUp />}
-        {selectedWordSet?.setId && <WordSetPopUp />}
+        {isWordSetPopUpOpen && <WordSetPopUp />}
         {isSideMenuOpen && <SideMenu />}
       </Switch>
     </div>

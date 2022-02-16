@@ -6,12 +6,10 @@ import WordList from '../../components/word-list/word-list';
 import PageWrap from '../../components/page-wrap/page-wrap';
 import useWindowDimensions from '../../utils/hooks/useWindowDimensions';
 import ListsControlpanel from '../../components/lists-control-panel/lists-control-panel';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import LoadingErrorWrapper from '../../components/hocs/loading-error-wrapper/loading-error-wrapper';
-import { getUserWords } from '../../services/actions/functions';
 
 function MainPage() {
-  const dispatch = useDispatch();
 
   const [ isSecondList, setIsSecondList] = React.useState(false);
   const { width } = useWindowDimensions();
@@ -30,13 +28,6 @@ function MainPage() {
   const toggleList = () => {
     setIsSecondList(!isSecondList);
   }
-
-  React.useEffect(() => {
-    if (!sessionStorage.getItem('isNewSessionStart')) {
-      dispatch(getUserWords());
-      // sessionStorage.setItem('isNewSessionStart', 'true'); // only for non-backend use
-    }
-  }, [])
 
   return (
     <PageWrap>

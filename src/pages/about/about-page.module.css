@@ -1,6 +1,6 @@
 .articlesList {
   list-style: none;
-  margin: 0;
+  margin: 0 0 30px 0;
   padding: 0;
 }
 
@@ -11,4 +11,22 @@
 
 .element:last-child {
   margin-bottom: 0;
+}
+
+.frameList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  justify-items: center;
+  gap: 40px;
+}
+
+.frame {
+  display: flex;
+  justify-content: center;
+  aspect-ratio: 3 / 2;
+  width: 100%;
 }
